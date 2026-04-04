@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout_bottom_button"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="16dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registration Form"
+                android:textColor="@android:color/white"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="32dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Username"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="@color/color_text_hint"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:inputType="text" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Full name"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="@color/color_text_hint"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Country"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="@color/color_text_hint"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:inputType="text" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="E-mail"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="@color/color_text_hint"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Phone number"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="@color/color_text_hint"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:inputType="phone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Gender"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="85dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_button_yellow"
+                    android:text="Male"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"
+                    android:layout_marginEnd="12dp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="85dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_input_field"
+                    android:text="Female"
+                    android:textColor="@android:color/white"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Date of birth"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:layout_width="50dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="DD"
+                    android:textColorHint="@color/color_text_hint"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="8dp"
+                    android:inputType="number"
+                    android:maxLength="2"/>
+
+                <EditText
+                    android:layout_width="50dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="MM"
+                    android:textColorHint="@color/color_text_hint"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="8dp"
+                    android:inputType="number"
+                    android:maxLength="2"/>
+
+                <EditText
+                    android:layout_width="70dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="YYYY"
+                    android:textColorHint="@color/color_text_hint"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:maxLength="4"/>
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Password"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="@color/color_text_hint"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:inputType="textPassword" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agree with Terms &amp; Conditions"
+                android:textColor="@android:color/white"
+                android:buttonTint="@color/color_accent_yellow"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layout_bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingHorizontal="24dp"
+        android:paddingBottom="24dp"
+        android:paddingTop="8dp"
+        android:background="@drawable/bg_gradient">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_button_yellow"
+            android:text="Create account"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:elevation="4dp"/>
+    </LinearLayout>
+
+</RelativeLayout>
