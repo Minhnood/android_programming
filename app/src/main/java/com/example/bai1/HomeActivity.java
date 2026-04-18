@@ -23,27 +23,21 @@ public class HomeActivity extends AppCompatActivity {
             return insets;
         });
 
-        // 1. TẠO HÀM CHUYỂN TRANG CHUNG
         View.OnClickListener onProductClick = v -> {
             Intent intent = new Intent(HomeActivity.this, DetailProductActivity.class);
             startActivity(intent);
         };
 
-        // 2. GẮN SỰ KIỆN CHO TẤT CẢ 12 SẢN PHẨM TRÊN MÀN HÌNH
-
-        // Nhóm Sản phẩm Hot
         findViewById(R.id.imgHot1).setOnClickListener(onProductClick);
         findViewById(R.id.imgHot2).setOnClickListener(onProductClick);
         findViewById(R.id.imgHot3).setOnClickListener(onProductClick);
         findViewById(R.id.imgHot4).setOnClickListener(onProductClick);
 
-        // Nhóm Khuyến mãi
         findViewById(R.id.imgPromo1).setOnClickListener(onProductClick);
         findViewById(R.id.imgPromo2).setOnClickListener(onProductClick);
         findViewById(R.id.imgPromo3).setOnClickListener(onProductClick);
         findViewById(R.id.imgPromo4).setOnClickListener(onProductClick);
 
-        // Nhóm Danh sách lưới
         findViewById(R.id.imgGrid1).setOnClickListener(onProductClick);
         findViewById(R.id.imgGrid2).setOnClickListener(onProductClick);
         findViewById(R.id.imgGrid3).setOnClickListener(onProductClick);
