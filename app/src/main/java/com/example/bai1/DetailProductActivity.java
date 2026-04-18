@@ -22,7 +22,6 @@ public class DetailProductActivity extends AppCompatActivity {
             return insets;
         });
 
-        // BẮT SỰ KIỆN NÚT BACK (MŨI TÊN TRỞ VỀ)
         ImageView btnBack = findViewById(R.id.btnBack);
         if (btnBack != null) {
             btnBack.setOnClickListener(v -> {
