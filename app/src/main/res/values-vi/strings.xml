@@ -1,0 +1,170 @@
+<resources>
+    <string name="app_name">JDM Legends Garage</string>
+
+    <string name="back">Quay lại</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="cancel">Hủy</string>
+    <string name="send">Gửi</string>
+
+    <string name="home_subtitle">Tìm chiếc xe trong mơ của bạn</string>
+    <string name="top_brands">HÃNG NỔI BẬT</string>
+    <string name="hot_releases">XE HOT</string>
+    <string name="explore_garage">KHÁM PHÁ GARAGE</string>
+    <string name="see_all">Xem tất cả</string>
+    <string name="region_domestic">Xe nội địa (JDM)</string>
+    <string name="region_foreign">Xe nước ngoài</string>
+    <string name="news_badge">TIN Ô TÔ RSS</string>
+    <string name="news_card_title">Cập nhật thị trường ô tô mới nhất từ VnExpress</string>
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_garage">Garage</string>
+    <string name="nav_cart">Giỏ hàng</string>
+
+    <string name="current_price">Giá thị trường</string>
+    <string name="colors_header">MÀU SẮC</string>
+    <string name="specs_header">THÔNG SỐ KỸ THUẬT</string>
+    <string name="spec_engine">Động cơ</string>
+    <string name="spec_power">Công suất</string>
+    <string name="spec_accel">0-100 km/h</string>
+    <string name="spec_drivetrain">Dẫn động</string>
+    <string name="desc_header">MÔ TẢ</string>
+    <string name="customer_reviews">ĐÁNH GIÁ KHÁCH HÀNG</string>
+    <string name="add_review">+ Viết đánh giá</string>
+    <string name="reply">↩  Trả lời</string>
+    <string name="no_reviews">Chưa có đánh giá nào. Hãy là người đầu tiên!</string>
+    <string name="test_drive">LÁI THỬ</string>
+    <string name="buy_now">MUA NGAY</string>
+
+    <string name="write_review">VIẾT ĐÁNH GIÁ</string>
+    <string name="rate_experience">Chấm điểm trải nghiệm</string>
+    <string name="your_comment">Nhận xét của bạn</string>
+    <string name="submit">Gửi</string>
+    <string name="reply_hint">Viết câu trả lời…</string>
+
+    <string name="sign_in">ĐĂNG NHẬP</string>
+    <string name="create_account">TẠO TÀI KHOẢN</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="prompt_sign_up">Chưa có tài khoản? Đăng ký</string>
+    <string name="prompt_login">Đã có tài khoản? Đăng nhập</string>
+    <string name="send_reset">GỬI LIÊN KẾT ĐẶT LẠI</string>
+    <string name="welcome_back">Chào mừng trở lại</string>
+    <string name="create_account_title">Tạo tài khoản</string>
+
+    <string name="profile">HỒ SƠ</string>
+    <string name="edit_profile">Sửa hồ sơ</string>
+    <string name="notifications">Thông báo</string>
+    <string name="order_history">Lịch sử đơn hàng</string>
+    <string name="my_garage">Garage mơ ước</string>
+    <string name="app_settings">Cài đặt ứng dụng</string>
+    <string name="logout">ĐĂNG XUẤT</string>
+    <string name="in_cart">Trong giỏ</string>
+    <string name="wishlist">Yêu thích</string>
+    <string name="account_settings">CÀI ĐẶT TÀI KHOẢN</string>
+
+    <string name="edit_profile_title">SỬA HỒ SƠ</string>
+    <string name="phone">Số điện thoại</string>
+    <string name="bio">Giới thiệu bản thân</string>
+    <string name="save_changes">LƯU THAY ĐỔI</string>
+    <string name="tap_to_change_photo">Chạm vào ảnh để thay đổi</string>
+
+    <string name="shopping_cart">GIỎ HÀNG</string>
+    <string name="total_price">Tổng tiền</string>
+    <string name="shipping_included">Đã gồm phí vận chuyển và thuế</string>
+    <string name="proceed_checkout">TIẾN HÀNH THANH TOÁN</string>
+    <string name="cart_empty">Giỏ hàng trống</string>
+    <string name="cart_empty_sub">Hãy thêm những chiếc xe bạn yêu thích</string>
+    <string name="confirm_order">XÁC NHẬN ĐẶT HÀNG</string>
+
+    <string name="wishlist_title">GARAGE CỦA TÔI</string>
+
+    <string name="news_title">TIN XE &amp; JDM</string>
+    <string name="news_error">Không tải được tin tức.\nKéo xuống để thử lại.</string>
+
+    <string name="notifications_title">THÔNG BÁO</string>
+    <string name="no_notifications">Chưa có thông báo nào</string>
+
+    <string name="search_hint">Tìm huyền thoại JDM của bạn…</string>
+    <string name="recent_searches">TÌM KIẾM GẦN ĐÂY</string>
+    <string name="popular_brands">HÃNG PHỔ BIẾN</string>
+    <string name="no_results">Không tìm thấy xe phù hợp</string>
+
+    <string name="settings">CÀI ĐẶT</string>
+    <string name="dark_mode">Chế độ tối (Luôn bật)</string>
+    <string name="push_notifications">Thông báo đẩy</string>
+    <string name="about_app">VỀ JDM GARAGE</string>
+    <string name="privacy_policy">Chính sách bảo mật</string>
+    <string name="terms_of_service">Điều khoản dịch vụ</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="choose_language">Chọn ngôn ngữ</string>
+
+    <!-- Checkout -->
+    <string name="checkout_title">THANH TOÁN</string>
+    <string name="shipping_address">ĐỊA CHỈ GIAO HÀNG</string>
+    <string name="address_hint_osm">Gõ để xem gợi ý địa chỉ (OpenStreetMap)</string>
+    <string name="payment_method">PHƯƠNG THỨC THANH TOÁN</string>
+    <string name="pay_cod">Thanh toán khi nhận hàng (COD)</string>
+    <string name="pay_card">Thẻ / Chuyển khoản</string>
+    <string name="order_summary">TÓM TẮT ĐƠN HÀNG</string>
+
+    <!-- Detail extra -->
+    <string name="brand_label">HÃNG XE</string>
+    <string name="no_description">Chưa có mô tả cho xe này.</string>
+
+    <!-- Login extra -->
+    <string name="login_subtitle">Đăng nhập vào tài khoản của bạn</string>
+    <string name="no_account_prefix">"Chưa có tài khoản? "</string>
+    <string name="create_one">Đăng ký ngay</string>
+
+    <!-- Forgot password -->
+    <string name="forgot_title_1">QUÊN</string>
+    <string name="forgot_title_2">MẬT KHẨU?</string>
+    <string name="forgot_subtitle">Nhập email để nhận liên kết đặt lại mật khẩu</string>
+
+    <!-- Register extra -->
+    <string name="register_title_1">GIA NHẬP</string>
+    <string name="register_title_2">ĐỘI JDM</string>
+    <string name="register_subtitle">Tạo tài khoản để bắt đầu hành trình của bạn</string>
+    <string name="already_member_prefix">"Đã có tài khoản? "</string>
+    <string name="sign_in_link">Đăng nhập</string>
+
+    <!-- Order history / details -->
+    <string name="order_history_title">LỊCH SỬ ĐƠN HÀNG</string>
+    <string name="no_orders">Chưa có đơn hàng</string>
+    <string name="no_orders_sub">Lịch sử đơn hàng đang trống. Hãy bắt đầu tìm chiếc xe JDM trong mơ của bạn!</string>
+    <string name="order_status">Trạng thái đơn hàng</string>
+    <string name="items_label">SẢN PHẨM</string>
+    <string name="total_amount">Tổng cộng</string>
+    <string name="contact_support">LIÊN HỆ HỖ TRỢ</string>
+    <string name="tracking_title">THEO DÕI ĐƠN HÀNG</string>
+    <string name="order_number_prefix">ĐƠN #</string>
+
+    <!-- Wishlist empty -->
+    <string name="garage_empty">Garage của bạn đang trống</string>
+    <string name="garage_empty_sub">Bạn chưa thêm chiếc xe nào vào garage. Hãy khám phá ngay!</string>
+    <string name="explore_cars">KHÁM PHÁ XE</string>
+    <string name="garage_count">%1$d xe trong garage mơ ước của bạn</string>
+
+    <!-- Misc -->
+    <string name="category_empty">Chưa có xe nào trong mục này</string>
+    <string name="news_article">Bài viết</string>
+    <string name="version_prefix">Phiên bản</string>
+    <string name="hint_address">Nhập địa chỉ giao xe…</string>
+    <string name="phone_header">SỐ ĐIỆN THOẠI</string>
+    <string name="err_phone_required">Vui lòng nhập số điện thoại</string>
+    <string name="err_phone_invalid">Số điện thoại không hợp lệ (10 số, bắt đầu bằng 0)</string>
+
+    <!-- Lái thử -->
+    <string name="test_drive_title">Đăng ký lái thử</string>
+    <string name="test_drive_car_label">XE</string>
+    <string name="test_drive_when">NGÀY &amp; GIỜ MONG MUỐN</string>
+    <string name="td_pick_date">Chọn ngày</string>
+    <string name="td_pick_time">Chọn giờ</string>
+    <string name="td_note">GHI CHÚ</string>
+    <string name="td_note_hint">Điều gì cần lưu ý? (tùy chọn)</string>
+    <string name="td_confirm">XÁC NHẬN ĐẶT LỊCH</string>
+    <string name="td_success">Đã đăng ký lái thử! Chúng tôi sẽ liên hệ xác nhận.</string>
+    <string name="td_err_name">Vui lòng nhập họ tên</string>
+    <string name="td_err_datetime">Vui lòng chọn ngày và giờ</string>
+</resources>

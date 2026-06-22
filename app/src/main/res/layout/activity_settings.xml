@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:padding="24dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_circle_dark"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/settings"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_search_input"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="6dp">
+
+        <!-- Ngôn ngữ -->
+        <LinearLayout
+            android:id="@+id/rowLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/language"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tvCurrentLang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/jdm_red"
+                android:textStyle="bold"
+                android:drawableEnd="@drawable/ic_chevron"
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/text_secondary" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/jdm_grey" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchDarkMode"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/dark_mode"
+            android:textColor="@color/white"
+            android:checked="true"
+            android:enabled="false"
+            app:thumbTint="@color/jdm_red"
+            app:trackTint="@color/jdm_grey" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchNotif"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/push_notifications"
+            android:textColor="@color/white"
+            android:checked="true"
+            app:thumbTint="@color/jdm_red"
+            app:trackTint="@color/jdm_grey" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/about_app"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_search_input"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:id="@+id/tvPrivacy"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:text="@string/privacy_policy"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:drawableEnd="@drawable/ic_chevron"
+            android:drawableTint="@color/text_secondary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/jdm_grey" />
+
+        <TextView
+            android:id="@+id/tvTerms"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:text="@string/terms_of_service"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:drawableEnd="@drawable/ic_chevron"
+            android:drawableTint="@color/text_secondary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/jdm_grey" />
+
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:text="Version 1.0"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+</LinearLayout>

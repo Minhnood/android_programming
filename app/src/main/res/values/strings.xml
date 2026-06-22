@@ -1,0 +1,183 @@
+<resources>
+    <string name="app_name">JDM Legends Garage</string>
+
+    <!-- Common -->
+    <string name="back">Back</string>
+    <string name="search">Search</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Send</string>
+
+    <!-- Home -->
+    <string name="home_subtitle">Find your dream drift car</string>
+    <string name="top_brands">TOP BRANDS</string>
+    <string name="hot_releases">HOT RELEASES</string>
+    <string name="explore_garage">EXPLORE GARAGE</string>
+    <string name="see_all">See All</string>
+    <string name="region_domestic">Domestic (JDM)</string>
+    <string name="region_foreign">Foreign cars</string>
+    <string name="news_badge">RSS AUTO NEWS</string>
+    <string name="news_card_title">Latest car market updates from VnExpress</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_garage">Garage</string>
+    <string name="nav_cart">Cart</string>
+
+    <!-- Detail -->
+    <string name="current_price">Current Market Price</string>
+    <string name="colors_header">COLOR</string>
+    <string name="specs_header">SPECIFICATIONS</string>
+    <string name="spec_engine">Engine</string>
+    <string name="spec_power">Power</string>
+    <string name="spec_accel">0-100 km/h</string>
+    <string name="spec_drivetrain">Drivetrain</string>
+    <string name="desc_header">DESCRIPTION</string>
+    <string name="customer_reviews">CUSTOMER REVIEWS</string>
+    <string name="add_review">+ Add Review</string>
+    <string name="reply">↩  Reply</string>
+    <string name="no_reviews">No reviews yet. Be the first!</string>
+    <string name="test_drive">TEST DRIVE</string>
+    <string name="buy_now">BUY NOW</string>
+
+    <!-- Add review dialog -->
+    <string name="write_review">WRITE A REVIEW</string>
+    <string name="rate_experience">Rate your experience</string>
+    <string name="your_comment">Your comment</string>
+    <string name="submit">Submit</string>
+    <string name="reply_hint">Write a reply…</string>
+
+    <!-- Auth -->
+    <string name="sign_in">SIGN IN</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="prompt_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="prompt_login">Already have an account? Login</string>
+    <string name="send_reset">SEND RESET LINK</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="create_account_title">Create Account</string>
+
+    <!-- Profile -->
+    <string name="profile">PROFILE</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="notifications">Notifications</string>
+    <string name="order_history">Order History</string>
+    <string name="my_garage">My Dream Garage</string>
+    <string name="app_settings">App Settings</string>
+    <string name="logout">LOGOUT</string>
+    <string name="in_cart">In Cart</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="account_settings">ACCOUNT SETTINGS</string>
+
+    <!-- Edit profile -->
+    <string name="edit_profile_title">EDIT PROFILE</string>
+    <string name="phone">Phone</string>
+    <string name="bio">Bio</string>
+    <string name="save_changes">SAVE CHANGES</string>
+    <string name="tap_to_change_photo">Tap the photo to change</string>
+
+    <!-- Cart / Checkout -->
+    <string name="shopping_cart">SHOPPING CART</string>
+    <string name="total_price">Total Price</string>
+    <string name="shipping_included">Shipping and taxes included</string>
+    <string name="proceed_checkout">PROCEED TO CHECKOUT</string>
+    <string name="cart_empty">Your cart is empty</string>
+    <string name="cart_empty_sub">Add the cars you love</string>
+    <string name="confirm_order">CONFIRM ORDER</string>
+
+    <!-- Wishlist -->
+    <string name="wishlist_title">MY GARAGE</string>
+
+    <!-- News -->
+    <string name="news_title">JDM &amp; AUTO NEWS</string>
+    <string name="news_error">Couldn\'t load news.\nPull down to retry.</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">NOTIFICATIONS</string>
+    <string name="no_notifications">No notifications yet</string>
+
+    <!-- Search -->
+    <string name="search_hint">Search your JDM legend…</string>
+    <string name="recent_searches">RECENT SEARCHES</string>
+    <string name="popular_brands">POPULAR BRANDS</string>
+    <string name="no_results">No matching cars found</string>
+
+    <!-- Settings -->
+    <string name="settings">SETTINGS</string>
+    <string name="dark_mode">Dark Mode (Always On)</string>
+    <string name="push_notifications">Push Notifications</string>
+    <string name="about_app">ABOUT JDM GARAGE</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="language">Language</string>
+    <string name="choose_language">Choose language</string>
+
+    <!-- Checkout -->
+    <string name="checkout_title">CHECKOUT</string>
+    <string name="shipping_address">SHIPPING ADDRESS</string>
+    <string name="address_hint_osm">Type to see address suggestions (OpenStreetMap)</string>
+    <string name="payment_method">PAYMENT METHOD</string>
+    <string name="pay_cod">Cash on Delivery</string>
+    <string name="pay_card">Credit Card / Banking</string>
+    <string name="order_summary">ORDER SUMMARY</string>
+
+    <!-- Detail extra -->
+    <string name="brand_label">BRAND</string>
+    <string name="no_description">No description available.</string>
+
+    <!-- Login extra -->
+    <string name="login_subtitle">Sign in to your account</string>
+    <string name="no_account_prefix">"Don\'t have an account? "</string>
+    <string name="create_one">Create One</string>
+
+    <!-- Forgot password -->
+    <string name="forgot_title_1">FORGOT</string>
+    <string name="forgot_title_2">PASSWORD?</string>
+    <string name="forgot_subtitle">Enter your email to receive a reset link</string>
+
+    <!-- Register extra -->
+    <string name="register_title_1">JOIN THE</string>
+    <string name="register_title_2">JDM CREW</string>
+    <string name="register_subtitle">Create an account to start your journey</string>
+    <string name="already_member_prefix">"Already a member? "</string>
+    <string name="sign_in_link">Sign In</string>
+
+    <!-- Order history / details -->
+    <string name="order_history_title">ORDER HISTORY</string>
+    <string name="no_orders">No Orders Yet</string>
+    <string name="no_orders_sub">Your order history is empty. Start shopping for your JDM legend!</string>
+    <string name="order_status">Order Status</string>
+    <string name="items_label">ITEMS</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="contact_support">CONTACT SUPPORT</string>
+    <string name="tracking_title">ORDER TRACKING</string>
+    <string name="order_number_prefix">ORDER #</string>
+
+    <!-- Wishlist empty -->
+    <string name="garage_empty">Your Garage is Empty</string>
+    <string name="garage_empty_sub">You haven\'t added any legends to your garage yet. Start exploring now!</string>
+    <string name="explore_cars">EXPLORE CARS</string>
+    <string name="garage_count">%1$d cars in your dream garage</string>
+
+    <!-- Misc -->
+    <string name="category_empty">No cars in this category</string>
+    <string name="news_article">News Article</string>
+    <string name="version_prefix">Version</string>
+    <string name="hint_address">Enter delivery address…</string>
+    <string name="phone_header">PHONE NUMBER</string>
+    <string name="err_phone_required">Please enter your phone number</string>
+    <string name="err_phone_invalid">Invalid phone number (10 digits, starting with 0)</string>
+
+    <!-- Test Drive -->
+    <string name="test_drive_title">Book a Test Drive</string>
+    <string name="test_drive_car_label">VEHICLE</string>
+    <string name="test_drive_when">PREFERRED DATE &amp; TIME</string>
+    <string name="td_pick_date">Pick date</string>
+    <string name="td_pick_time">Pick time</string>
+    <string name="td_note">NOTE</string>
+    <string name="td_note_hint">Anything we should know? (optional)</string>
+    <string name="td_confirm">CONFIRM BOOKING</string>
+    <string name="td_success">Test drive booked! We will contact you to confirm.</string>
+    <string name="td_err_name">Please enter your full name</string>
+    <string name="td_err_datetime">Please pick a date and time</string>
+</resources>

@@ -1,0 +1,2450 @@
+[
+  {
+    "id": 1,
+    "name": "Nissan Skyline GT-R R34",
+    "brand": "Nissan",
+    "price": "$150,000",
+    "engine": "RB26DETT I6 Twin-Turbo",
+    "power": "327 HP",
+    "acceleration": "4.9s",
+    "drivetrain": "AWD",
+    "description": "Nissan Skyline GT-R R34 – biểu tượng JDM với động cơ RB26DETT I6 Twin-Turbo (327 HP), tăng tốc 0-100 km/h trong 4.9s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_1",
+        "quantity": 4
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_10",
+        "quantity": 3
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_19",
+        "quantity": 3
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 10
+  },
+  {
+    "id": 2,
+    "name": "Nissan Skyline GT-R R32",
+    "brand": "Nissan",
+    "price": "$90,000",
+    "engine": "RB26DETT I6 Twin-Turbo",
+    "power": "276 HP",
+    "acceleration": "5.6s",
+    "drivetrain": "AWD",
+    "description": "Nissan Skyline GT-R R32 – biểu tượng JDM với động cơ RB26DETT I6 Twin-Turbo (276 HP), tăng tốc 0-100 km/h trong 5.6s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_2",
+        "quantity": 1
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_11",
+        "quantity": 2
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_20",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 4
+  },
+  {
+    "id": 3,
+    "name": "Nissan Skyline GT-R R33",
+    "brand": "Nissan",
+    "price": "$80,000",
+    "engine": "RB26DETT I6 Twin-Turbo",
+    "power": "276 HP",
+    "acceleration": "5.4s",
+    "drivetrain": "AWD",
+    "description": "Nissan Skyline GT-R R33 – biểu tượng JDM với động cơ RB26DETT I6 Twin-Turbo (276 HP), tăng tốc 0-100 km/h trong 5.4s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_3",
+        "quantity": 4
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_12",
+        "quantity": 2
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_21",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 11
+  },
+  {
+    "id": 4,
+    "name": "Nissan Silvia S15",
+    "brand": "Nissan",
+    "price": "$40,000",
+    "engine": "SR20DET I4 Turbo",
+    "power": "250 HP",
+    "acceleration": "5.5s",
+    "drivetrain": "RWD",
+    "description": "Nissan Silvia S15 – biểu tượng JDM với động cơ SR20DET I4 Turbo (250 HP), tăng tốc 0-100 km/h trong 5.5s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_4",
+        "quantity": 5
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_13",
+        "quantity": 2
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_22",
+        "quantity": 2
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 5,
+    "name": "Nissan Silvia S13",
+    "brand": "Nissan",
+    "price": "$25,000",
+    "engine": "CA18DET I4 Turbo",
+    "power": "169 HP",
+    "acceleration": "7.4s",
+    "drivetrain": "RWD",
+    "description": "Nissan Silvia S13 – biểu tượng JDM với động cơ CA18DET I4 Turbo (169 HP), tăng tốc 0-100 km/h trong 7.4s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_5",
+        "quantity": 5
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_14",
+        "quantity": 4
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_23",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 13
+  },
+  {
+    "id": 6,
+    "name": "Nissan 350Z",
+    "brand": "Nissan",
+    "price": "$30,000",
+    "engine": "VQ35DE V6",
+    "power": "287 HP",
+    "acceleration": "5.8s",
+    "drivetrain": "RWD",
+    "description": "Nissan 350Z – biểu tượng JDM với động cơ VQ35DE V6 (287 HP), tăng tốc 0-100 km/h trong 5.8s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_6",
+        "quantity": 2
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_15",
+        "quantity": 1
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_24",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 8
+  },
+  {
+    "id": 7,
+    "name": "Nissan 370Z",
+    "brand": "Nissan",
+    "price": "$38,000",
+    "engine": "VQ37VHR V6",
+    "power": "332 HP",
+    "acceleration": "5.1s",
+    "drivetrain": "RWD",
+    "description": "Nissan 370Z – biểu tượng JDM với động cơ VQ37VHR V6 (332 HP), tăng tốc 0-100 km/h trong 5.1s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_7",
+        "quantity": 3
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_16",
+        "quantity": 4
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_25",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 11
+  },
+  {
+    "id": 8,
+    "name": "Nissan GT-R R35",
+    "brand": "Nissan",
+    "price": "$115,000",
+    "engine": "VR38DETT V6 Twin-Turbo",
+    "power": "565 HP",
+    "acceleration": "2.9s",
+    "drivetrain": "AWD",
+    "description": "Nissan GT-R R35 – biểu tượng JDM với động cơ VR38DETT V6 Twin-Turbo (565 HP), tăng tốc 0-100 km/h trong 2.9s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_8",
+        "quantity": 2
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_17",
+        "quantity": 3
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_26",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 9,
+    "name": "Toyota Supra MK4",
+    "brand": "Toyota",
+    "price": "$120,000",
+    "engine": "2JZ-GTE I6 Twin-Turbo",
+    "power": "320 HP",
+    "acceleration": "4.6s",
+    "drivetrain": "RWD",
+    "description": "Toyota Supra MK4 – biểu tượng JDM với động cơ 2JZ-GTE I6 Twin-Turbo (320 HP), tăng tốc 0-100 km/h trong 4.6s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_9",
+        "quantity": 4
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_18",
+        "quantity": 2
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_27",
+        "quantity": 3
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 10,
+    "name": "Toyota AE86 Trueno",
+    "brand": "Toyota",
+    "price": "$35,000",
+    "engine": "4A-GE I4",
+    "power": "128 HP",
+    "acceleration": "8.3s",
+    "drivetrain": "RWD",
+    "description": "Toyota AE86 Trueno – biểu tượng JDM với động cơ 4A-GE I4 (128 HP), tăng tốc 0-100 km/h trong 8.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_10",
+        "quantity": 1
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_19",
+        "quantity": 2
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_28",
+        "quantity": 2
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 5
+  },
+  {
+    "id": 11,
+    "name": "Toyota Supra MK5 A90",
+    "brand": "Toyota",
+    "price": "$60,000",
+    "engine": "B58 I6 Turbo",
+    "power": "382 HP",
+    "acceleration": "3.9s",
+    "drivetrain": "RWD",
+    "description": "Toyota Supra MK5 A90 – biểu tượng JDM với động cơ B58 I6 Turbo (382 HP), tăng tốc 0-100 km/h trong 3.9s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_11",
+        "quantity": 5
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_20",
+        "quantity": 2
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_29",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 12
+  },
+  {
+    "id": 12,
+    "name": "Toyota Chaser JZX100",
+    "brand": "Toyota",
+    "price": "$28,000",
+    "engine": "1JZ-GTE I6 Turbo",
+    "power": "276 HP",
+    "acceleration": "6.1s",
+    "drivetrain": "RWD",
+    "description": "Toyota Chaser JZX100 – biểu tượng JDM với động cơ 1JZ-GTE I6 Turbo (276 HP), tăng tốc 0-100 km/h trong 6.1s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_12",
+        "quantity": 1
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_21",
+        "quantity": 4
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_30",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 13,
+    "name": "Toyota Celica GT-Four",
+    "brand": "Toyota",
+    "price": "$32,000",
+    "engine": "3S-GTE I4 Turbo",
+    "power": "252 HP",
+    "acceleration": "5.9s",
+    "drivetrain": "AWD",
+    "description": "Toyota Celica GT-Four – biểu tượng JDM với động cơ 3S-GTE I4 Turbo (252 HP), tăng tốc 0-100 km/h trong 5.9s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_13",
+        "quantity": 5
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_22",
+        "quantity": 2
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_31",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 11
+  },
+  {
+    "id": 14,
+    "name": "Toyota MR2 SW20",
+    "brand": "Toyota",
+    "price": "$26,000",
+    "engine": "3S-GTE I4 Turbo",
+    "power": "245 HP",
+    "acceleration": "6.0s",
+    "drivetrain": "RWD",
+    "description": "Toyota MR2 SW20 – biểu tượng JDM với động cơ 3S-GTE I4 Turbo (245 HP), tăng tốc 0-100 km/h trong 6.0s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_14",
+        "quantity": 5
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_23",
+        "quantity": 1
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_32",
+        "quantity": 2
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 8
+  },
+  {
+    "id": 15,
+    "name": "Toyota Soarer",
+    "brand": "Toyota",
+    "price": "$22,000",
+    "engine": "1JZ-GTE I6 Turbo",
+    "power": "276 HP",
+    "acceleration": "6.3s",
+    "drivetrain": "RWD",
+    "description": "Toyota Soarer – biểu tượng JDM với động cơ 1JZ-GTE I6 Turbo (276 HP), tăng tốc 0-100 km/h trong 6.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_15",
+        "quantity": 1
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_24",
+        "quantity": 5
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_33",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 10
+  },
+  {
+    "id": 16,
+    "name": "Toyota GR Yaris",
+    "brand": "Toyota",
+    "price": "$40,000",
+    "engine": "G16E-GTS I3 Turbo",
+    "power": "268 HP",
+    "acceleration": "5.2s",
+    "drivetrain": "AWD",
+    "description": "Toyota GR Yaris – biểu tượng JDM với động cơ G16E-GTS I3 Turbo (268 HP), tăng tốc 0-100 km/h trong 5.2s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_16",
+        "quantity": 5
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_25",
+        "quantity": 5
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_34",
+        "quantity": 2
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 12
+  },
+  {
+    "id": 17,
+    "name": "Mazda RX-7 FD3S",
+    "brand": "Mazda",
+    "price": "$85,000",
+    "engine": "13B-REW Rotary",
+    "power": "276 HP",
+    "acceleration": "5.3s",
+    "drivetrain": "RWD",
+    "description": "Mazda RX-7 FD3S – biểu tượng JDM với động cơ 13B-REW Rotary (276 HP), tăng tốc 0-100 km/h trong 5.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_17",
+        "quantity": 3
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_26",
+        "quantity": 4
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_35",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 8
+  },
+  {
+    "id": 18,
+    "name": "Mazda RX-7 FC",
+    "brand": "Mazda",
+    "price": "$35,000",
+    "engine": "13B Turbo Rotary",
+    "power": "200 HP",
+    "acceleration": "6.3s",
+    "drivetrain": "RWD",
+    "description": "Mazda RX-7 FC – biểu tượng JDM với động cơ 13B Turbo Rotary (200 HP), tăng tốc 0-100 km/h trong 6.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_18",
+        "quantity": 2
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_27",
+        "quantity": 3
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_36",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 19,
+    "name": "Mazda RX-8",
+    "brand": "Mazda",
+    "price": "$18,000",
+    "engine": "13B-MSP Renesis",
+    "power": "232 HP",
+    "acceleration": "6.4s",
+    "drivetrain": "RWD",
+    "description": "Mazda RX-8 – biểu tượng JDM với động cơ 13B-MSP Renesis (232 HP), tăng tốc 0-100 km/h trong 6.4s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_19",
+        "quantity": 1
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_28",
+        "quantity": 5
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_37",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 11
+  },
+  {
+    "id": 20,
+    "name": "Mazda MX-5 Miata NA",
+    "brand": "Mazda",
+    "price": "$15,000",
+    "engine": "B6-ZE I4",
+    "power": "116 HP",
+    "acceleration": "8.6s",
+    "drivetrain": "RWD",
+    "description": "Mazda MX-5 Miata NA – biểu tượng JDM với động cơ B6-ZE I4 (116 HP), tăng tốc 0-100 km/h trong 8.6s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_20",
+        "quantity": 4
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_29",
+        "quantity": 3
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_38",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 11
+  },
+  {
+    "id": 21,
+    "name": "Mazda MX-5 ND",
+    "brand": "Mazda",
+    "price": "$30,000",
+    "engine": "Skyactiv-G I4",
+    "power": "181 HP",
+    "acceleration": "6.5s",
+    "drivetrain": "RWD",
+    "description": "Mazda MX-5 ND – biểu tượng JDM với động cơ Skyactiv-G I4 (181 HP), tăng tốc 0-100 km/h trong 6.5s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_21",
+        "quantity": 4
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_30",
+        "quantity": 4
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_39",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 12
+  },
+  {
+    "id": 22,
+    "name": "Mazdaspeed3",
+    "brand": "Mazda",
+    "price": "$20,000",
+    "engine": "MZR I4 Turbo",
+    "power": "263 HP",
+    "acceleration": "5.4s",
+    "drivetrain": "FWD",
+    "description": "Mazdaspeed3 – biểu tượng JDM với động cơ MZR I4 Turbo (263 HP), tăng tốc 0-100 km/h trong 5.4s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_22",
+        "quantity": 5
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_31",
+        "quantity": 5
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_40",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 11
+  },
+  {
+    "id": 23,
+    "name": "Mazda Cosmo",
+    "brand": "Mazda",
+    "price": "$45,000",
+    "engine": "20B-REW 3-Rotor",
+    "power": "300 HP",
+    "acceleration": "5.8s",
+    "drivetrain": "RWD",
+    "description": "Mazda Cosmo – biểu tượng JDM với động cơ 20B-REW 3-Rotor (300 HP), tăng tốc 0-100 km/h trong 5.8s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_23",
+        "quantity": 3
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_32",
+        "quantity": 5
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_41",
+        "quantity": 3
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 11
+  },
+  {
+    "id": 24,
+    "name": "Mazda RX-3 Savanna",
+    "brand": "Mazda",
+    "price": "$40,000",
+    "engine": "12A Rotary",
+    "power": "120 HP",
+    "acceleration": "8.0s",
+    "drivetrain": "RWD",
+    "description": "Mazda RX-3 Savanna – biểu tượng JDM với động cơ 12A Rotary (120 HP), tăng tốc 0-100 km/h trong 8.0s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_24",
+        "quantity": 4
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_33",
+        "quantity": 2
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_42",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 11
+  },
+  {
+    "id": 25,
+    "name": "Honda NSX (NA1)",
+    "brand": "Honda",
+    "price": "$110,000",
+    "engine": "C30A V6 VTEC",
+    "power": "270 HP",
+    "acceleration": "5.7s",
+    "drivetrain": "RWD",
+    "description": "Honda NSX (NA1) – biểu tượng JDM với động cơ C30A V6 VTEC (270 HP), tăng tốc 0-100 km/h trong 5.7s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_25",
+        "quantity": 3
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_34",
+        "quantity": 1
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_43",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 5
+  },
+  {
+    "id": 26,
+    "name": "Honda Civic Type R EK9",
+    "brand": "Honda",
+    "price": "$40,000",
+    "engine": "B16B I4 VTEC",
+    "power": "182 HP",
+    "acceleration": "6.7s",
+    "drivetrain": "FWD",
+    "description": "Honda Civic Type R EK9 – biểu tượng JDM với động cơ B16B I4 VTEC (182 HP), tăng tốc 0-100 km/h trong 6.7s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_26",
+        "quantity": 4
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_35",
+        "quantity": 4
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_44",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 12
+  },
+  {
+    "id": 27,
+    "name": "Honda Integra Type R DC2",
+    "brand": "Honda",
+    "price": "$45,000",
+    "engine": "B18C I4 VTEC",
+    "power": "197 HP",
+    "acceleration": "6.2s",
+    "drivetrain": "FWD",
+    "description": "Honda Integra Type R DC2 – biểu tượng JDM với động cơ B18C I4 VTEC (197 HP), tăng tốc 0-100 km/h trong 6.2s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_27",
+        "quantity": 4
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_36",
+        "quantity": 1
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_45",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 10
+  },
+  {
+    "id": 28,
+    "name": "Honda S2000 AP1",
+    "brand": "Honda",
+    "price": "$50,000",
+    "engine": "F20C I4 VTEC",
+    "power": "240 HP",
+    "acceleration": "5.8s",
+    "drivetrain": "RWD",
+    "description": "Honda S2000 AP1 – biểu tượng JDM với động cơ F20C I4 VTEC (240 HP), tăng tốc 0-100 km/h trong 5.8s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_28",
+        "quantity": 5
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_37",
+        "quantity": 5
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_46",
+        "quantity": 3
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 13
+  },
+  {
+    "id": 29,
+    "name": "Honda Civic Type R FD2",
+    "brand": "Honda",
+    "price": "$35,000",
+    "engine": "K20A I4 VTEC",
+    "power": "222 HP",
+    "acceleration": "6.0s",
+    "drivetrain": "FWD",
+    "description": "Honda Civic Type R FD2 – biểu tượng JDM với động cơ K20A I4 VTEC (222 HP), tăng tốc 0-100 km/h trong 6.0s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_29",
+        "quantity": 1
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_38",
+        "quantity": 1
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_47",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 3
+  },
+  {
+    "id": 30,
+    "name": "Honda Prelude SiR",
+    "brand": "Honda",
+    "price": "$18,000",
+    "engine": "H22A I4 VTEC",
+    "power": "197 HP",
+    "acceleration": "6.8s",
+    "drivetrain": "FWD",
+    "description": "Honda Prelude SiR – biểu tượng JDM với động cơ H22A I4 VTEC (197 HP), tăng tốc 0-100 km/h trong 6.8s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_30",
+        "quantity": 4
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_39",
+        "quantity": 3
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_48",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 8
+  },
+  {
+    "id": 31,
+    "name": "Honda NSX (NA2)",
+    "brand": "Honda",
+    "price": "$130,000",
+    "engine": "C32B V6 VTEC",
+    "power": "290 HP",
+    "acceleration": "5.5s",
+    "drivetrain": "RWD",
+    "description": "Honda NSX (NA2) – biểu tượng JDM với động cơ C32B V6 VTEC (290 HP), tăng tốc 0-100 km/h trong 5.5s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_31",
+        "quantity": 4
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_40",
+        "quantity": 4
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_1",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 32,
+    "name": "Honda CR-X SiR",
+    "brand": "Honda",
+    "price": "$16,000",
+    "engine": "B16A I4 VTEC",
+    "power": "158 HP",
+    "acceleration": "7.5s",
+    "drivetrain": "FWD",
+    "description": "Honda CR-X SiR – biểu tượng JDM với động cơ B16A I4 VTEC (158 HP), tăng tốc 0-100 km/h trong 7.5s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_32",
+        "quantity": 1
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_41",
+        "quantity": 3
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_2",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 33,
+    "name": "Mitsubishi Lancer Evo IX",
+    "brand": "Mitsubishi",
+    "price": "$55,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "286 HP",
+    "acceleration": "4.5s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Lancer Evo IX – biểu tượng JDM với động cơ 4G63T I4 Turbo (286 HP), tăng tốc 0-100 km/h trong 4.5s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_33",
+        "quantity": 1
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_42",
+        "quantity": 2
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_3",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 4
+  },
+  {
+    "id": 34,
+    "name": "Mitsubishi Lancer Evo VI TME",
+    "brand": "Mitsubishi",
+    "price": "$48,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "276 HP",
+    "acceleration": "4.8s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Lancer Evo VI TME – biểu tượng JDM với động cơ 4G63T I4 Turbo (276 HP), tăng tốc 0-100 km/h trong 4.8s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_34",
+        "quantity": 3
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_43",
+        "quantity": 2
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_4",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 6
+  },
+  {
+    "id": 35,
+    "name": "Mitsubishi Lancer Evo X",
+    "brand": "Mitsubishi",
+    "price": "$42,000",
+    "engine": "4B11T I4 Turbo",
+    "power": "291 HP",
+    "acceleration": "4.4s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Lancer Evo X – biểu tượng JDM với động cơ 4B11T I4 Turbo (291 HP), tăng tốc 0-100 km/h trong 4.4s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_35",
+        "quantity": 5
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_44",
+        "quantity": 4
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_5",
+        "quantity": 3
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 12
+  },
+  {
+    "id": 36,
+    "name": "Mitsubishi 3000GT VR-4",
+    "brand": "Mitsubishi",
+    "price": "$30,000",
+    "engine": "6G72 V6 Twin-Turbo",
+    "power": "320 HP",
+    "acceleration": "5.4s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi 3000GT VR-4 – biểu tượng JDM với động cơ 6G72 V6 Twin-Turbo (320 HP), tăng tốc 0-100 km/h trong 5.4s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_36",
+        "quantity": 2
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_45",
+        "quantity": 2
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_6",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 37,
+    "name": "Mitsubishi Eclipse GSX",
+    "brand": "Mitsubishi",
+    "price": "$20,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "210 HP",
+    "acceleration": "6.2s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Eclipse GSX – biểu tượng JDM với động cơ 4G63T I4 Turbo (210 HP), tăng tốc 0-100 km/h trong 6.2s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_37",
+        "quantity": 1
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_46",
+        "quantity": 4
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_7",
+        "quantity": 2
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 7
+  },
+  {
+    "id": 38,
+    "name": "Mitsubishi Galant VR-4",
+    "brand": "Mitsubishi",
+    "price": "$18,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "237 HP",
+    "acceleration": "6.0s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Galant VR-4 – biểu tượng JDM với động cơ 4G63T I4 Turbo (237 HP), tăng tốc 0-100 km/h trong 6.0s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_38",
+        "quantity": 4
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_47",
+        "quantity": 1
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_8",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 39,
+    "name": "Mitsubishi Lancer Evo VIII",
+    "brand": "Mitsubishi",
+    "price": "$38,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "271 HP",
+    "acceleration": "4.9s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Lancer Evo VIII – biểu tượng JDM với động cơ 4G63T I4 Turbo (271 HP), tăng tốc 0-100 km/h trong 4.9s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_39",
+        "quantity": 1
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_48",
+        "quantity": 1
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_9",
+        "quantity": 3
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 5
+  },
+  {
+    "id": 40,
+    "name": "Mitsubishi FTO",
+    "brand": "Mitsubishi",
+    "price": "$14,000",
+    "engine": "6A12 V6 MIVEC",
+    "power": "197 HP",
+    "acceleration": "7.0s",
+    "drivetrain": "FWD",
+    "description": "Mitsubishi FTO – biểu tượng JDM với động cơ 6A12 V6 MIVEC (197 HP), tăng tốc 0-100 km/h trong 7.0s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_40",
+        "quantity": 3
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_1",
+        "quantity": 1
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_10",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 5
+  },
+  {
+    "id": 41,
+    "name": "Subaru Impreza WRX STI",
+    "brand": "Subaru",
+    "price": "$45,000",
+    "engine": "EJ20 Boxer Turbo",
+    "power": "280 HP",
+    "acceleration": "4.7s",
+    "drivetrain": "AWD",
+    "description": "Subaru Impreza WRX STI – biểu tượng JDM với động cơ EJ20 Boxer Turbo (280 HP), tăng tốc 0-100 km/h trong 4.7s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_41",
+        "quantity": 2
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_2",
+        "quantity": 3
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_11",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 6
+  },
+  {
+    "id": 42,
+    "name": "Subaru Impreza 22B STI",
+    "brand": "Subaru",
+    "price": "$300,000",
+    "engine": "EJ22 Boxer Turbo",
+    "power": "280 HP",
+    "acceleration": "4.6s",
+    "drivetrain": "AWD",
+    "description": "Subaru Impreza 22B STI – biểu tượng JDM với động cơ EJ22 Boxer Turbo (280 HP), tăng tốc 0-100 km/h trong 4.6s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_42",
+        "quantity": 5
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_3",
+        "quantity": 5
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_12",
+        "quantity": 2
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 12
+  },
+  {
+    "id": 43,
+    "name": "Subaru WRX STI Hatch",
+    "brand": "Subaru",
+    "price": "$35,000",
+    "engine": "EJ25 Boxer Turbo",
+    "power": "305 HP",
+    "acceleration": "4.7s",
+    "drivetrain": "AWD",
+    "description": "Subaru WRX STI Hatch – biểu tượng JDM với động cơ EJ25 Boxer Turbo (305 HP), tăng tốc 0-100 km/h trong 4.7s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_43",
+        "quantity": 4
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_4",
+        "quantity": 4
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_13",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 13
+  },
+  {
+    "id": 44,
+    "name": "Subaru Legacy GT",
+    "brand": "Subaru",
+    "price": "$16,000",
+    "engine": "EJ20 Boxer Turbo",
+    "power": "280 HP",
+    "acceleration": "5.5s",
+    "drivetrain": "AWD",
+    "description": "Subaru Legacy GT – biểu tượng JDM với động cơ EJ20 Boxer Turbo (280 HP), tăng tốc 0-100 km/h trong 5.5s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_44",
+        "quantity": 2
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_5",
+        "quantity": 3
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_14",
+        "quantity": 5
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 10
+  },
+  {
+    "id": 45,
+    "name": "Subaru BRZ",
+    "brand": "Subaru",
+    "price": "$28,000",
+    "engine": "FA20 Boxer",
+    "power": "205 HP",
+    "acceleration": "6.3s",
+    "drivetrain": "RWD",
+    "description": "Subaru BRZ – biểu tượng JDM với động cơ FA20 Boxer (205 HP), tăng tốc 0-100 km/h trong 6.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_45",
+        "quantity": 1
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_6",
+        "quantity": 2
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_15",
+        "quantity": 4
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 7
+  },
+  {
+    "id": 46,
+    "name": "Subaru Forester STI",
+    "brand": "Subaru",
+    "price": "$30,000",
+    "engine": "EJ25 Boxer Turbo",
+    "power": "316 HP",
+    "acceleration": "5.0s",
+    "drivetrain": "AWD",
+    "description": "Subaru Forester STI – biểu tượng JDM với động cơ EJ25 Boxer Turbo (316 HP), tăng tốc 0-100 km/h trong 5.0s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_46",
+        "quantity": 1
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_7",
+        "quantity": 2
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_16",
+        "quantity": 2
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 5
+  },
+  {
+    "id": 47,
+    "name": "Subaru Impreza GC8",
+    "brand": "Subaru",
+    "price": "$25,000",
+    "engine": "EJ20 Boxer Turbo",
+    "power": "276 HP",
+    "acceleration": "5.0s",
+    "drivetrain": "AWD",
+    "description": "Subaru Impreza GC8 – biểu tượng JDM với động cơ EJ20 Boxer Turbo (276 HP), tăng tốc 0-100 km/h trong 5.0s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_47",
+        "quantity": 4
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_8",
+        "quantity": 5
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_17",
+        "quantity": 1
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 10
+  },
+  {
+    "id": 48,
+    "name": "Subaru WRX S4",
+    "brand": "Subaru",
+    "price": "$34,000",
+    "engine": "FA24 Boxer Turbo",
+    "power": "271 HP",
+    "acceleration": "5.6s",
+    "drivetrain": "AWD",
+    "description": "Subaru WRX S4 – biểu tượng JDM với động cơ FA24 Boxer Turbo (271 HP), tăng tốc 0-100 km/h trong 5.6s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_48",
+        "quantity": 2
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_9",
+        "quantity": 4
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_18",
+        "quantity": 3
+      }
+    ],
+    "region": "Nội địa",
+    "quantity": 9
+  },
+  {
+    "id": 49,
+    "name": "BMW M3 E46",
+    "brand": "BMW",
+    "price": "$55,000",
+    "engine": "3.2L I6",
+    "power": "343 HP",
+    "acceleration": "5.1s",
+    "drivetrain": "RWD",
+    "description": "BMW M3 E46 – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.2L I6 (343 HP), tăng tốc 0-100 km/h trong 5.1s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_49",
+        "quantity": 3
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_58",
+        "quantity": 3
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_67",
+        "quantity": 5
+      }
+    ],
+    "quantity": 11
+  },
+  {
+    "id": 50,
+    "name": "BMW M4 Competition",
+    "brand": "BMW",
+    "price": "$80,000",
+    "engine": "3.0L I6 Twin-Turbo",
+    "power": "503 HP",
+    "acceleration": "3.8s",
+    "drivetrain": "RWD",
+    "description": "BMW M4 Competition – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.0L I6 Twin-Turbo (503 HP), tăng tốc 0-100 km/h trong 3.8s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_50",
+        "quantity": 1
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_59",
+        "quantity": 5
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_68",
+        "quantity": 2
+      }
+    ],
+    "quantity": 8
+  },
+  {
+    "id": 51,
+    "name": "BMW M5 E60",
+    "brand": "BMW",
+    "price": "$45,000",
+    "engine": "5.0L V10",
+    "power": "500 HP",
+    "acceleration": "4.5s",
+    "drivetrain": "RWD",
+    "description": "BMW M5 E60 – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.0L V10 (500 HP), tăng tốc 0-100 km/h trong 4.5s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_51",
+        "quantity": 5
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_60",
+        "quantity": 1
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_69",
+        "quantity": 1
+      }
+    ],
+    "quantity": 7
+  },
+  {
+    "id": 52,
+    "name": "BMW M2",
+    "brand": "BMW",
+    "price": "$62,000",
+    "engine": "3.0L I6 Turbo",
+    "power": "405 HP",
+    "acceleration": "4.0s",
+    "drivetrain": "RWD",
+    "description": "BMW M2 – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.0L I6 Turbo (405 HP), tăng tốc 0-100 km/h trong 4.0s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_52",
+        "quantity": 4
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_61",
+        "quantity": 2
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_70",
+        "quantity": 1
+      }
+    ],
+    "quantity": 7
+  },
+  {
+    "id": 53,
+    "name": "Mercedes-AMG C63",
+    "brand": "Mercedes-AMG",
+    "price": "$75,000",
+    "engine": "4.0L V8 Biturbo",
+    "power": "503 HP",
+    "acceleration": "3.9s",
+    "drivetrain": "RWD",
+    "description": "Mercedes-AMG C63 – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Biturbo (503 HP), tăng tốc 0-100 km/h trong 3.9s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_53",
+        "quantity": 1
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_62",
+        "quantity": 2
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_71",
+        "quantity": 5
+      }
+    ],
+    "quantity": 8
+  },
+  {
+    "id": 54,
+    "name": "Mercedes-AMG GT",
+    "brand": "Mercedes-AMG",
+    "price": "$120,000",
+    "engine": "4.0L V8 Biturbo",
+    "power": "523 HP",
+    "acceleration": "3.7s",
+    "drivetrain": "RWD",
+    "description": "Mercedes-AMG GT – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Biturbo (523 HP), tăng tốc 0-100 km/h trong 3.7s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_54",
+        "quantity": 2
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_63",
+        "quantity": 3
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_72",
+        "quantity": 1
+      }
+    ],
+    "quantity": 6
+  },
+  {
+    "id": 55,
+    "name": "Mercedes-AMG A45 S",
+    "brand": "Mercedes-AMG",
+    "price": "$60,000",
+    "engine": "2.0L I4 Turbo",
+    "power": "416 HP",
+    "acceleration": "3.9s",
+    "drivetrain": "AWD",
+    "description": "Mercedes-AMG A45 S – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.0L I4 Turbo (416 HP), tăng tốc 0-100 km/h trong 3.9s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_55",
+        "quantity": 2
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_64",
+        "quantity": 2
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_1",
+        "quantity": 4
+      }
+    ],
+    "quantity": 8
+  },
+  {
+    "id": 56,
+    "name": "Mercedes-AMG E63 S",
+    "brand": "Mercedes-AMG",
+    "price": "$110,000",
+    "engine": "4.0L V8 Biturbo",
+    "power": "603 HP",
+    "acceleration": "3.4s",
+    "drivetrain": "AWD",
+    "description": "Mercedes-AMG E63 S – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Biturbo (603 HP), tăng tốc 0-100 km/h trong 3.4s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_56",
+        "quantity": 4
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_65",
+        "quantity": 3
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_2",
+        "quantity": 3
+      }
+    ],
+    "quantity": 10
+  },
+  {
+    "id": 57,
+    "name": "Audi RS6 Avant",
+    "brand": "Audi",
+    "price": "$120,000",
+    "engine": "4.0L V8 Twin-Turbo",
+    "power": "591 HP",
+    "acceleration": "3.6s",
+    "drivetrain": "AWD",
+    "description": "Audi RS6 Avant – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Twin-Turbo (591 HP), tăng tốc 0-100 km/h trong 3.6s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_57",
+        "quantity": 1
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_66",
+        "quantity": 2
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_3",
+        "quantity": 3
+      }
+    ],
+    "quantity": 6
+  },
+  {
+    "id": 58,
+    "name": "Audi R8 V10",
+    "brand": "Audi",
+    "price": "$160,000",
+    "engine": "5.2L V10",
+    "power": "562 HP",
+    "acceleration": "3.5s",
+    "drivetrain": "AWD",
+    "description": "Audi R8 V10 – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.2L V10 (562 HP), tăng tốc 0-100 km/h trong 3.5s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_58",
+        "quantity": 1
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_67",
+        "quantity": 2
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_4",
+        "quantity": 4
+      }
+    ],
+    "quantity": 7
+  },
+  {
+    "id": 59,
+    "name": "Audi RS3",
+    "brand": "Audi",
+    "price": "$60,000",
+    "engine": "2.5L I5 Turbo",
+    "power": "401 HP",
+    "acceleration": "3.8s",
+    "drivetrain": "AWD",
+    "description": "Audi RS3 – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.5L I5 Turbo (401 HP), tăng tốc 0-100 km/h trong 3.8s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_59",
+        "quantity": 5
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_68",
+        "quantity": 4
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_5",
+        "quantity": 5
+      }
+    ],
+    "quantity": 14
+  },
+  {
+    "id": 60,
+    "name": "Audi TT RS",
+    "brand": "Audi",
+    "price": "$70,000",
+    "engine": "2.5L I5 Turbo",
+    "power": "394 HP",
+    "acceleration": "3.6s",
+    "drivetrain": "AWD",
+    "description": "Audi TT RS – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.5L I5 Turbo (394 HP), tăng tốc 0-100 km/h trong 3.6s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_60",
+        "quantity": 5
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_69",
+        "quantity": 1
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_6",
+        "quantity": 2
+      }
+    ],
+    "quantity": 8
+  },
+  {
+    "id": 61,
+    "name": "Porsche 911 GT3",
+    "brand": "Porsche",
+    "price": "$170,000",
+    "engine": "4.0L Flat-6",
+    "power": "502 HP",
+    "acceleration": "3.2s",
+    "drivetrain": "RWD",
+    "description": "Porsche 911 GT3 – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L Flat-6 (502 HP), tăng tốc 0-100 km/h trong 3.2s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_61",
+        "quantity": 4
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_70",
+        "quantity": 3
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_7",
+        "quantity": 1
+      }
+    ],
+    "quantity": 8
+  },
+  {
+    "id": 62,
+    "name": "Porsche 718 Cayman",
+    "brand": "Porsche",
+    "price": "$65,000",
+    "engine": "2.0L Flat-4 Turbo",
+    "power": "300 HP",
+    "acceleration": "4.9s",
+    "drivetrain": "RWD",
+    "description": "Porsche 718 Cayman – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.0L Flat-4 Turbo (300 HP), tăng tốc 0-100 km/h trong 4.9s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_62",
+        "quantity": 4
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_71",
+        "quantity": 2
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_8",
+        "quantity": 3
+      }
+    ],
+    "quantity": 9
+  },
+  {
+    "id": 63,
+    "name": "Porsche 911 Turbo S",
+    "brand": "Porsche",
+    "price": "$230,000",
+    "engine": "3.8L Flat-6 Twin-Turbo",
+    "power": "640 HP",
+    "acceleration": "2.6s",
+    "drivetrain": "AWD",
+    "description": "Porsche 911 Turbo S – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.8L Flat-6 Twin-Turbo (640 HP), tăng tốc 0-100 km/h trong 2.6s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_63",
+        "quantity": 4
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_72",
+        "quantity": 3
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_9",
+        "quantity": 4
+      }
+    ],
+    "quantity": 11
+  },
+  {
+    "id": 64,
+    "name": "Porsche Panamera",
+    "brand": "Porsche",
+    "price": "$190,000",
+    "engine": "4.0L V8 Twin-Turbo",
+    "power": "620 HP",
+    "acceleration": "3.0s",
+    "drivetrain": "AWD",
+    "description": "Porsche Panamera – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Twin-Turbo (620 HP), tăng tốc 0-100 km/h trong 3.0s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_64",
+        "quantity": 5
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_1",
+        "quantity": 3
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_10",
+        "quantity": 3
+      }
+    ],
+    "quantity": 11
+  },
+  {
+    "id": 65,
+    "name": "Ford Mustang GT",
+    "brand": "Ford",
+    "price": "$40,000",
+    "engine": "5.0L V8",
+    "power": "450 HP",
+    "acceleration": "4.3s",
+    "drivetrain": "RWD",
+    "description": "Ford Mustang GT – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.0L V8 (450 HP), tăng tốc 0-100 km/h trong 4.3s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_65",
+        "quantity": 1
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_2",
+        "quantity": 3
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_11",
+        "quantity": 4
+      }
+    ],
+    "quantity": 8
+  },
+  {
+    "id": 66,
+    "name": "Ford Mustang Shelby GT500",
+    "brand": "Ford",
+    "price": "$80,000",
+    "engine": "5.2L V8 Supercharged",
+    "power": "760 HP",
+    "acceleration": "3.5s",
+    "drivetrain": "RWD",
+    "description": "Ford Mustang Shelby GT500 – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.2L V8 Supercharged (760 HP), tăng tốc 0-100 km/h trong 3.5s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_66",
+        "quantity": 3
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_3",
+        "quantity": 5
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_12",
+        "quantity": 1
+      }
+    ],
+    "quantity": 9
+  },
+  {
+    "id": 67,
+    "name": "Ford Focus RS",
+    "brand": "Ford",
+    "price": "$40,000",
+    "engine": "2.3L I4 Turbo",
+    "power": "350 HP",
+    "acceleration": "4.6s",
+    "drivetrain": "AWD",
+    "description": "Ford Focus RS – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.3L I4 Turbo (350 HP), tăng tốc 0-100 km/h trong 4.6s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_67",
+        "quantity": 3
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_4",
+        "quantity": 5
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_13",
+        "quantity": 1
+      }
+    ],
+    "quantity": 9
+  },
+  {
+    "id": 68,
+    "name": "Ford GT",
+    "brand": "Ford",
+    "price": "$500,000",
+    "engine": "3.5L V6 Twin-Turbo",
+    "power": "647 HP",
+    "acceleration": "3.0s",
+    "drivetrain": "RWD",
+    "description": "Ford GT – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.5L V6 Twin-Turbo (647 HP), tăng tốc 0-100 km/h trong 3.0s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_68",
+        "quantity": 1
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_5",
+        "quantity": 5
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_14",
+        "quantity": 4
+      }
+    ],
+    "quantity": 10
+  },
+  {
+    "id": 69,
+    "name": "Chevrolet Corvette C8",
+    "brand": "Chevrolet",
+    "price": "$65,000",
+    "engine": "6.2L V8",
+    "power": "495 HP",
+    "acceleration": "2.9s",
+    "drivetrain": "RWD",
+    "description": "Chevrolet Corvette C8 – mẫu xe hiệu năng cao nhập khẩu với động cơ 6.2L V8 (495 HP), tăng tốc 0-100 km/h trong 2.9s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_69",
+        "quantity": 3
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_6",
+        "quantity": 2
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_15",
+        "quantity": 5
+      }
+    ],
+    "quantity": 10
+  },
+  {
+    "id": 70,
+    "name": "Chevrolet Camaro SS",
+    "brand": "Chevrolet",
+    "price": "$43,000",
+    "engine": "6.2L V8",
+    "power": "455 HP",
+    "acceleration": "4.0s",
+    "drivetrain": "RWD",
+    "description": "Chevrolet Camaro SS – mẫu xe hiệu năng cao nhập khẩu với động cơ 6.2L V8 (455 HP), tăng tốc 0-100 km/h trong 4.0s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_70",
+        "quantity": 1
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_7",
+        "quantity": 3
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_16",
+        "quantity": 3
+      }
+    ],
+    "quantity": 7
+  },
+  {
+    "id": 71,
+    "name": "Chevrolet Corvette Z06",
+    "brand": "Chevrolet",
+    "price": "$110,000",
+    "engine": "5.5L V8",
+    "power": "670 HP",
+    "acceleration": "2.6s",
+    "drivetrain": "RWD",
+    "description": "Chevrolet Corvette Z06 – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.5L V8 (670 HP), tăng tốc 0-100 km/h trong 2.6s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_71",
+        "quantity": 4
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_8",
+        "quantity": 5
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_17",
+        "quantity": 2
+      }
+    ],
+    "quantity": 11
+  },
+  {
+    "id": 72,
+    "name": "Chevrolet Camaro ZL1",
+    "brand": "Chevrolet",
+    "price": "$70,000",
+    "engine": "6.2L V8 Supercharged",
+    "power": "650 HP",
+    "acceleration": "3.5s",
+    "drivetrain": "RWD",
+    "description": "Chevrolet Camaro ZL1 – mẫu xe hiệu năng cao nhập khẩu với động cơ 6.2L V8 Supercharged (650 HP), tăng tốc 0-100 km/h trong 3.5s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_72",
+        "quantity": 3
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_9",
+        "quantity": 3
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_18",
+        "quantity": 2
+      }
+    ],
+    "quantity": 8
+  }
+]

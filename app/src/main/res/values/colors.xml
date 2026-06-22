@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF0D0D0F</color>
+
+    <!-- Accent (racing red) -->
+    <color name="jdm_red">#FFF5333F</color>
+    <color name="jdm_red_dark">#FFB71C2B</color>
+
+    <!-- Surfaces -->
+    <color name="jdm_black">#FF000000</color>
+    <color name="jdm_dark_grey">#FF16161A</color>
+    <color name="jdm_grey">#FF232329</color>
+
+    <!-- Text -->
+    <color name="text_secondary">#FFA0A4AD</color>
+
+    <color name="placeholder">#FF232329</color>
+    <color name="ic_launcher_background">#FF0D0D0F</color>
+
+    <!-- Aliases kept for compatibility -->
+    <color name="purple_500">#FFF5333F</color>
+    <color name="purple_700">#FFB71C2B</color>
+    <color name="teal_200">#FF03DAC5</color>
+</resources>

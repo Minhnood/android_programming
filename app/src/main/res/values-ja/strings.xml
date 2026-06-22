@@ -1,0 +1,170 @@
+<resources>
+    <string name="app_name">JDM Legends Garage</string>
+
+    <string name="back">戻る</string>
+    <string name="search">検索</string>
+    <string name="cancel">キャンセル</string>
+    <string name="send">送信</string>
+
+    <string name="home_subtitle">夢のドリフトカーを見つけよう</string>
+    <string name="top_brands">人気ブランド</string>
+    <string name="hot_releases">注目の車</string>
+    <string name="explore_garage">ガレージを探す</string>
+    <string name="see_all">すべて見る</string>
+    <string name="region_domestic">国産車 (JDM)</string>
+    <string name="region_foreign">外車</string>
+    <string name="news_badge">RSS 自動車ニュース</string>
+    <string name="news_card_title">VnExpress の最新自動車市場ニュース</string>
+    <string name="nav_home">ホーム</string>
+    <string name="nav_garage">ガレージ</string>
+    <string name="nav_cart">カート</string>
+
+    <string name="current_price">現在の市場価格</string>
+    <string name="colors_header">カラー</string>
+    <string name="specs_header">スペック</string>
+    <string name="spec_engine">エンジン</string>
+    <string name="spec_power">出力</string>
+    <string name="spec_accel">0-100 km/h</string>
+    <string name="spec_drivetrain">駆動方式</string>
+    <string name="desc_header">説明</string>
+    <string name="customer_reviews">カスタマーレビュー</string>
+    <string name="add_review">+ レビューを書く</string>
+    <string name="reply">↩  返信</string>
+    <string name="no_reviews">まだレビューがありません。最初の一人になろう！</string>
+    <string name="test_drive">試乗する</string>
+    <string name="buy_now">今すぐ購入</string>
+
+    <string name="write_review">レビューを書く</string>
+    <string name="rate_experience">体験を評価する</string>
+    <string name="your_comment">コメント</string>
+    <string name="submit">送信</string>
+    <string name="reply_hint">返信を入力…</string>
+
+    <string name="sign_in">ログイン</string>
+    <string name="create_account">アカウント作成</string>
+    <string name="full_name">氏名</string>
+    <string name="email">メール</string>
+    <string name="password">パスワード</string>
+    <string name="forgot_password">パスワードをお忘れですか？</string>
+    <string name="prompt_sign_up">アカウントがない方は登録</string>
+    <string name="prompt_login">すでにアカウントをお持ちですか？ログイン</string>
+    <string name="send_reset">リセットリンクを送信</string>
+    <string name="welcome_back">おかえりなさい</string>
+    <string name="create_account_title">アカウント作成</string>
+
+    <string name="profile">プロフィール</string>
+    <string name="edit_profile">プロフィール編集</string>
+    <string name="notifications">通知</string>
+    <string name="order_history">注文履歴</string>
+    <string name="my_garage">マイ・ドリームガレージ</string>
+    <string name="app_settings">アプリ設定</string>
+    <string name="logout">ログアウト</string>
+    <string name="in_cart">カート内</string>
+    <string name="wishlist">お気に入り</string>
+    <string name="account_settings">アカウント設定</string>
+
+    <string name="edit_profile_title">プロフィール編集</string>
+    <string name="phone">電話番号</string>
+    <string name="bio">自己紹介</string>
+    <string name="save_changes">変更を保存</string>
+    <string name="tap_to_change_photo">写真をタップして変更</string>
+
+    <string name="shopping_cart">ショッピングカート</string>
+    <string name="total_price">合計金額</string>
+    <string name="shipping_included">送料・税込み</string>
+    <string name="proceed_checkout">レジに進む</string>
+    <string name="cart_empty">カートは空です</string>
+    <string name="cart_empty_sub">お気に入りの車を追加しましょう</string>
+    <string name="confirm_order">注文を確定</string>
+
+    <string name="wishlist_title">マイガレージ</string>
+
+    <string name="news_title">JDM ＆ 自動車ニュース</string>
+    <string name="news_error">ニュースを読み込めませんでした。\n下に引いて再試行してください。</string>
+
+    <string name="notifications_title">通知</string>
+    <string name="no_notifications">通知はまだありません</string>
+
+    <string name="search_hint">JDM の名車を検索…</string>
+    <string name="recent_searches">最近の検索</string>
+    <string name="popular_brands">人気ブランド</string>
+    <string name="no_results">該当する車が見つかりません</string>
+
+    <string name="settings">設定</string>
+    <string name="dark_mode">ダークモード（常時オン）</string>
+    <string name="push_notifications">プッシュ通知</string>
+    <string name="about_app">JDM ガレージについて</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="terms_of_service">利用規約</string>
+    <string name="language">言語</string>
+    <string name="choose_language">言語を選択</string>
+
+    <!-- Checkout -->
+    <string name="checkout_title">購入手続き</string>
+    <string name="shipping_address">配送先住所</string>
+    <string name="address_hint_osm">入力すると住所候補が表示されます (OpenStreetMap)</string>
+    <string name="payment_method">支払い方法</string>
+    <string name="pay_cod">代金引換</string>
+    <string name="pay_card">クレジットカード / 振込</string>
+    <string name="order_summary">注文内容</string>
+
+    <!-- Detail extra -->
+    <string name="brand_label">ブランド</string>
+    <string name="no_description">説明はありません。</string>
+
+    <!-- Login extra -->
+    <string name="login_subtitle">アカウントにサインイン</string>
+    <string name="no_account_prefix">"アカウントをお持ちでない方? "</string>
+    <string name="create_one">新規登録</string>
+
+    <!-- Forgot password -->
+    <string name="forgot_title_1">パスワード</string>
+    <string name="forgot_title_2">をお忘れ?</string>
+    <string name="forgot_subtitle">メールアドレスを入力してリセットリンクを受け取る</string>
+
+    <!-- Register extra -->
+    <string name="register_title_1">参加しよう</string>
+    <string name="register_title_2">JDMクルー</string>
+    <string name="register_subtitle">アカウントを作成して始めましょう</string>
+    <string name="already_member_prefix">"すでに会員ですか? "</string>
+    <string name="sign_in_link">サインイン</string>
+
+    <!-- Order history / details -->
+    <string name="order_history_title">注文履歴</string>
+    <string name="no_orders">注文がありません</string>
+    <string name="no_orders_sub">注文履歴は空です。JDMの名車を探しましょう！</string>
+    <string name="order_status">注文ステータス</string>
+    <string name="items_label">商品</string>
+    <string name="total_amount">合計金額</string>
+    <string name="contact_support">サポートに連絡</string>
+    <string name="tracking_title">注文追跡</string>
+    <string name="order_number_prefix">注文 #</string>
+
+    <!-- Wishlist empty -->
+    <string name="garage_empty">ガレージは空です</string>
+    <string name="garage_empty_sub">まだ車を追加していません。今すぐ探しましょう！</string>
+    <string name="explore_cars">車を探す</string>
+    <string name="garage_count">ドリームガレージに %1$d 台</string>
+
+    <!-- Misc -->
+    <string name="category_empty">このカテゴリーに車はありません</string>
+    <string name="news_article">記事</string>
+    <string name="version_prefix">バージョン</string>
+    <string name="hint_address">配送先住所を入力…</string>
+    <string name="phone_header">電話番号</string>
+    <string name="err_phone_required">電話番号を入力してください</string>
+    <string name="err_phone_invalid">電話番号が正しくありません（0から始まる10桁）</string>
+
+    <!-- 試乗 -->
+    <string name="test_drive_title">試乗を予約</string>
+    <string name="test_drive_car_label">車両</string>
+    <string name="test_drive_when">希望日時</string>
+    <string name="td_pick_date">日付を選択</string>
+    <string name="td_pick_time">時間を選択</string>
+    <string name="td_note">メモ</string>
+    <string name="td_note_hint">ご要望があればご記入ください（任意）</string>
+    <string name="td_confirm">予約を確定</string>
+    <string name="td_success">試乗を予約しました！確認のためご連絡します。</string>
+    <string name="td_err_name">お名前を入力してください</string>
+    <string name="td_err_datetime">日付と時間を選択してください</string>
+</resources>

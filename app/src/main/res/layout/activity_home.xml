@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true">
+
+    <!-- Header Section - Increased Padding Top -->
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="32dp"
+        android:paddingBottom="16dp"
+        android:paddingHorizontal="20dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JDM LEGENDS"
+                android:textColor="@color/jdm_red"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_subtitle"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnSearch"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_search_input"
+            android:src="@android:drawable/ic_menu_search"
+            app:tint="@color/white"
+            android:contentDescription="Search" />
+
+        <!-- Notification bell with unread badge -->
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="12dp">
+
+            <ImageView
+                android:id="@+id/btnNotifications"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_search_input"
+                android:src="@drawable/ic_bell"
+                app:tint="@color/white"
+                android:contentDescription="Notifications" />
+
+            <TextView
+                android:id="@+id/tvNotifBadge"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="top|end"
+                android:background="@drawable/bg_circle_red"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnProfile"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_placeholder"
+            app:shapeAppearanceOverlay="@style/CircleImage"
+            app:strokeColor="@color/jdm_grey"
+            app:strokeWidth="1dp" />
+    </LinearLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintTop_toBottomOf="@+id/llHeader">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <!-- Featured News Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardNews"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/jdm_red">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:gravity="bottom">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/news_badge"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="4dp"
+                            android:background="@drawable/bg_search_input" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/news_card_title"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Khu vực: Nội địa / Nước ngoài -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardDomestic"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/jdm_grey"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/jdm_red"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🇯🇵"
+                            android:textSize="26sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/region_domestic"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardForeign"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/jdm_grey"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/jdm_red"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🌍"
+                            android:textSize="26sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/region_foreign"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Brands Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/top_brands"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    android:orientation="horizontal">
+                    <TextView android:id="@+id/brandNissan" android:layout_width="100dp" android:layout_height="50dp" android:background="@drawable/bg_search_input" android:gravity="center" android:text="NISSAN" android:textColor="@color/white" android:textStyle="bold" android:layout_marginEnd="12dp"/>
+                    <TextView android:id="@+id/brandToyota" android:layout_width="100dp" android:layout_height="50dp" android:background="@drawable/bg_search_input" android:gravity="center" android:text="TOYOTA" android:textColor="@color/white" android:textStyle="bold" android:layout_marginEnd="12dp"/>
+                    <TextView android:id="@+id/brandMazda" android:layout_width="100dp" android:layout_height="50dp" android:background="@drawable/bg_search_input" android:gravity="center" android:text="MAZDA" android:textColor="@color/white" android:textStyle="bold" android:layout_marginEnd="12dp"/>
+                    <TextView android:id="@+id/brandHonda" android:layout_width="100dp" android:layout_height="50dp" android:background="@drawable/bg_search_input" android:gravity="center" android:text="HONDA" android:textColor="@color/white" android:textStyle="bold" android:layout_marginEnd="12dp"/>
+                    <TextView android:id="@+id/brandMitsubishi" android:layout_width="110dp" android:layout_height="50dp" android:background="@drawable/bg_search_input" android:gravity="center" android:text="MITSUBISHI" android:textColor="@color/white" android:textStyle="bold" android:layout_marginEnd="12dp"/>
+                    <TextView android:id="@+id/brandSubaru" android:layout_width="100dp" android:layout_height="50dp" android:background="@drawable/bg_search_input" android:gravity="center" android:text="SUBARU" android:textColor="@color/white" android:textStyle="bold" android:layout_marginEnd="12dp"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:paddingHorizontal="20dp">
+                <TextView
+                    android:id="@+id/tvHotHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hot_releases"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/btnSeeAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBottom="@id/tvHotHeader"
+                    android:text="@string/see_all"
+                    android:textColor="@color/jdm_red"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHotCars"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:paddingHorizontal="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/explore_garage"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAllCars"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingHorizontal="12dp"
+                android:nestedScrollingEnabled="false" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/jdm_dark_grey"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout android:id="@+id/navHome" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_today" app:tint="@color/jdm_red" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nav_home" android:textColor="@color/jdm_red" android:textSize="10sp" android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navWishlist" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/btn_star_big_on" app:tint="@color/text_secondary" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nav_garage" android:textColor="@color/text_secondary" android:textSize="10sp" android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navCart" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_input_add" app:tint="@color/text_secondary" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nav_cart" android:textColor="@color/text_secondary" android:textSize="10sp" android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

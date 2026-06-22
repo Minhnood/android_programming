@@ -1,0 +1,2863 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JDM Garage — Admin</title>
+<style>
+  :root{
+    --bg:#0D0D0F; --surface:#16161A; --surface2:#232329; --line:#2c2c33;
+    --red:#F5333F; --red2:#B71C2B; --text:#fff; --muted:#A0A4AD;
+    --green:#13402b; --greenT:#7ee0a6; --blue:#1c3a5e; --blueT:#7ab8f0; --amber:#4a3a12; --amberT:#f2c200;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  header{position:sticky;top:0;z-index:5;background:rgba(13,13,15,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:14px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  header h1{font-size:19px;margin:0;letter-spacing:.5px}
+  header h1 b{color:var(--red)}
+  .spacer{flex:1}
+  .btn{border:0;border-radius:10px;padding:9px 15px;font-weight:700;cursor:pointer;font-size:13px}
+  .btn-red{background:linear-gradient(90deg,var(--red2),var(--red));color:#fff}
+  .btn-ghost{background:var(--surface2);color:#fff}
+  .btn-sm{padding:6px 11px;font-size:12px;border-radius:8px}
+  input,select,textarea{background:var(--surface2);border:1px solid var(--line);border-radius:9px;color:#fff;padding:9px 11px;font-size:13px;outline:none}
+  input:focus,select:focus,textarea:focus{border-color:var(--red)}
+  /* tabs */
+  nav.tabs{display:flex;gap:6px;padding:10px 24px 0;border-bottom:1px solid var(--line);position:sticky;top:57px;background:var(--bg);z-index:4}
+  .tab{padding:10px 18px;cursor:pointer;color:var(--muted);font-weight:700;border-bottom:2px solid transparent;font-size:14px}
+  .tab.active{color:#fff;border-bottom-color:var(--red)}
+  main{max-width:1150px;margin:0 auto;padding:24px}
+  .view{display:none}
+  .view.active{display:block}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .stat .n{font-size:26px;font-weight:800}
+  .stat .l{color:var(--muted);font-size:12px;margin-top:4px;text-transform:uppercase;letter-spacing:.4px}
+  .stat .n.red{color:var(--red)}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.cols{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .card h3{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle}
+  th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+  tr:last-child td{border-bottom:0}
+  .tablewrap{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .thumb{width:60px;height:40px;object-fit:cover;border-radius:7px;background:var(--surface2);display:block}
+  .bar{height:7px;border-radius:4px;background:var(--red);min-width:4px}
+  .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700}
+  .pill.dom{background:var(--green);color:var(--greenT)} .pill.for{background:#3a2030;color:#f0a6c0}
+  .pill.st-sold{background:var(--amber);color:var(--amberT)}
+  .pill.st-paper{background:var(--blue);color:var(--blueT)}
+  .pill.st-deliver{background:var(--green);color:var(--greenT)}
+  .pill.st-done{background:#1f3a2e;color:#9be8b8}
+  .pill.st-other{background:#3a2030;color:#f0a6c0}
+  .pill.role-admin{background:#3a2030;color:#f0a6c0}
+  .pill.role-customer{background:var(--blue);color:var(--blueT)}
+  .chip{padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--muted);cursor:pointer;font-size:12px;font-weight:700}
+  .chip.active{background:var(--red);color:#fff;border-color:var(--red)}
+  .chartbox{width:100%;padding-top:8px}
+  .chartbox svg{width:100%;height:auto;display:block;overflow:visible}
+  .gline{stroke:var(--line);stroke-width:1}
+  .axis{fill:var(--muted);font-size:11px}
+  .dot{fill:var(--red);stroke:#16161A;stroke-width:2;transition:r .15s} .dot:hover{r:6}
+  .donut-legend{display:flex;flex-direction:column;gap:8px}
+  .donut-legend .li{display:flex;align-items:center;gap:8px;font-size:13px}
+  .donut-legend .sw{width:12px;height:12px;border-radius:3px}
+  .bar{height:9px;border-radius:5px;background:linear-gradient(90deg,var(--red2),var(--red));min-width:5px}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .toolbar input[type=search]{flex:1;min-width:160px}
+  .muted{color:var(--muted)} .right{text-align:right}
+  .row-actions{display:flex;gap:6px;justify-content:flex-end}
+  .cell-name{font-weight:700}.cell-sub{color:var(--muted);font-size:11px}
+  .conn-dot{width:9px;height:9px;border-radius:50%;background:#666;display:inline-block;margin-right:6px}
+  .conn-dot.on{background:#39d98a}
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:flex-start;justify-content:center;padding:32px 16px;overflow:auto;z-index:10}
+  .overlay.open{display:flex}
+  .modal{width:100%;max-width:640px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
+  .modal h2{margin:0 0 16px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+  .field label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  .field input,.field select,.field textarea{width:100%}
+  .colors h3{font-size:13px;color:var(--muted);text-transform:uppercase;margin:8px 0}
+  .color-row{display:grid;grid-template-columns:1fr 64px 1fr 64px 30px;gap:8px;margin-bottom:8px;align-items:center}
+  .modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+  .x{background:transparent;border:0;color:var(--muted);font-size:22px;cursor:pointer}
+  .empty{padding:28px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<!-- ===== Cổng đăng nhập quản trị (hiện trước, ẩn dashboard cho tới khi đăng nhập) ===== -->
+<div id="loginGate" style="position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px">
+  <div style="width:100%;max-width:380px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px">
+    <h1 style="margin:0 0 4px;font-size:22px"><b style="color:var(--red)">JDM</b> Garage · Admin</h1>
+    <p style="margin:0 0 20px;color:var(--muted);font-size:13px">Đăng nhập bằng tài khoản quản trị (role = admin)</p>
+    <label style="display:block;font-size:12px;color:var(--muted);margin-bottom:4px">API URL</label>
+    <input id="loginApi" value="https://jdm-shop.onrender.com" style="width:100%;box-sizing:border-box;margin-bottom:14px" />
+    <label style="display:block;font-size:12px;color:var(--muted);margin-bottom:4px">Email</label>
+    <input id="loginEmail" type="email" autocomplete="username" placeholder="admin@example.com" style="width:100%;box-sizing:border-box;margin-bottom:14px" />
+    <label style="display:block;font-size:12px;color:var(--muted);margin-bottom:4px">Mật khẩu</label>
+    <input id="loginPass" type="password" autocomplete="current-password" placeholder="••••••" style="width:100%;box-sizing:border-box;margin-bottom:8px" onkeydown="if(event.key==='Enter')doLogin()" />
+    <div id="loginErr" style="color:#F5666F;font-size:13px;min-height:18px;margin-bottom:10px"></div>
+    <button class="btn btn-red" id="btnLogin" onclick="doLogin()" style="width:100%">Đăng nhập</button>
+  </div>
+</div>
+<header>
+  <h1><b>JDM</b> Garage · Admin</h1>
+  <span><span class="conn-dot" id="dot"></span><span id="connTxt" class="muted" style="font-size:12px">Chưa kết nối</span></span>
+  <div class="spacer"></div>
+  <input id="apiUrl" value="https://jdm-shop.onrender.com" title="API URL" style="width:180px" />
+  <button class="btn btn-ghost" id="btnApi" onclick="connectApi()">🔌 Kết nối</button>
+  <span id="adminWho" class="muted" style="font-size:12px"></span>
+  <button class="btn btn-ghost" id="btnLogout" onclick="logout()" style="display:none">🚪 Đăng xuất</button>
+</header>
+
+<nav class="tabs">
+  <div class="tab active" data-tab="dashboard" onclick="showTab('dashboard')">📊 Dashboard</div>
+  <div class="tab" data-tab="cars" onclick="showTab('cars')">🚗 Xe</div>
+  <div class="tab" data-tab="orders" onclick="showTab('orders')">📦 Đơn hàng</div>
+  <div class="tab" data-tab="users" onclick="showTab('users')">👥 Người dùng</div>
+</nav>
+
+<main>
+  <!-- DASHBOARD -->
+  <section class="view active" id="view-dashboard">
+    <div class="stats" id="stats"></div>
+    <div class="card" style="margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <h3 style="margin:0;flex:1">Biểu đồ theo thời gian</h3>
+        <span class="chip mchip active" data-m="rev" onclick="setMetric('rev')">Doanh thu</span>
+        <span class="chip mchip" data-m="cnt" onclick="setMetric('cnt')">Số đơn</span>
+        <span style="width:1px;height:20px;background:var(--line);margin:0 4px"></span>
+        <span class="chip active" data-g="day" onclick="setChart('day')">Ngày</span>
+        <span class="chip" data-g="week" onclick="setChart('week')">Tuần</span>
+        <span class="chip" data-g="month" onclick="setChart('month')">Tháng</span>
+      </div>
+      <div id="chart" class="chartbox"></div>
+    </div>
+    <div class="cols">
+      <div class="card">
+        <h3>Số xe theo hãng</h3>
+        <table id="brandTable"></table>
+      </div>
+      <div class="card">
+        <h3>Đơn hàng gần đây</h3>
+        <table id="recentOrders"></table>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3>Đơn theo trạng thái</h3>
+      <div id="statusBreak"></div>
+    </div>
+  </section>
+
+  <!-- CARS -->
+  <section class="view" id="view-cars">
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Tìm tên / hãng…" oninput="renderCars()" />
+      <select id="fRegion" onchange="renderCars()">
+        <option value="">Tất cả khu vực</option><option>Nội địa</option><option>Nước ngoài</option>
+      </select>
+      <select id="fBrand" onchange="renderCars()"><option value="">Tất cả hãng</option></select>
+      <input type="file" id="importFile" accept="application/json" style="display:none" />
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('importFile').click()">⬆ Nhập</button>
+      <button class="btn btn-ghost btn-sm" onclick="exportJson()">⬇ Xuất</button>
+      <button class="btn btn-red btn-sm" onclick="addCar()">＋ Thêm xe</button>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Ảnh</th><th>Tên xe</th><th>Hãng</th><th>Khu vực</th><th>Giá</th><th>Công suất</th><th>Kho</th><th></th></tr></thead>
+        <tbody id="carRows"></tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:12px">Ảnh từ <code>../app/src/main/res/drawable/&lt;image&gt;.jpg</code>.</p>
+  </section>
+
+  <!-- ORDERS -->
+  <section class="view" id="view-orders">
+    <div class="toolbar">
+      <input type="search" id="oq" placeholder="Tìm mã đơn / email…" oninput="renderOrders()" />
+      <select id="fStatus" onchange="renderOrders()">
+        <option value="">Tất cả trạng thái</option>
+        <option>Đang xử lý</option><option>Đang giao</option><option>Đã tới</option><option>Hoàn thành</option>
+      </select>
+      <label class="muted" style="font-size:12px">Từ <input type="date" id="dFrom" onchange="renderOrders()"></label>
+      <label class="muted" style="font-size:12px">Đến <input type="date" id="dTo" onchange="renderOrders()"></label>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('dFrom').value='';document.getElementById('dTo').value='';renderOrders()">Xoá lọc</button>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Mã đơn</th><th>Khách</th><th>Ngày</th><th>Tổng</th><th>Thanh toán</th><th>SP</th><th>Trạng thái</th><th></th></tr></thead>
+        <tbody id="orderRows"></tbody>
+      </table>
+    </div>
+    <p class="muted" id="ordersHint" style="font-size:12px">Bấm <b>Kết nối</b> để tải đơn hàng từ server.</p>
+  </section>
+
+  <!-- USERS -->
+  <section class="view" id="view-users">
+    <div class="toolbar">
+      <input type="search" id="uq" placeholder="Tìm tên / email…" oninput="renderUsers()" />
+      <select id="fRole" onchange="renderUsers()">
+        <option value="">Tất cả vai trò</option><option value="admin">Admin</option><option value="customer">Khách hàng</option>
+      </select>
+      <button class="btn btn-red btn-sm" onclick="addUser()">＋ Thêm người dùng</button>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Tên</th><th>Email</th><th>SĐT</th><th>Vai trò</th><th></th></tr></thead>
+        <tbody id="userRows"></tbody>
+      </table>
+    </div>
+    <p class="muted" id="usersHint" style="font-size:12px">Bấm <b>Kết nối</b> để quản lý người dùng.</p>
+  </section>
+</main>
+
+<!-- User modal -->
+<div class="overlay" id="ovUser">
+  <div class="modal" style="max-width:460px">
+    <div style="display:flex;align-items:center"><h2 id="uTitle" style="flex:1">Người dùng</h2><button class="x" onclick="document.getElementById('ovUser').classList.remove('open')">×</button></div>
+    <div class="field"><label>Họ tên</label><input id="u_name" /></div>
+    <div class="field"><label>Email</label><input id="u_email" /></div>
+    <div class="field"><label>Số điện thoại</label><input id="u_phone" /></div>
+    <div class="field"><label>Vai trò</label><select id="u_role"><option value="customer">Khách hàng</option><option value="admin">Admin</option></select></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="document.getElementById('ovUser').classList.remove('open')">Hủy</button>
+      <button class="btn btn-red" onclick="saveUser()">Lưu</button>
+    </div>
+  </div>
+</div>
+
+<!-- Car modal -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div style="display:flex;align-items:center"><h2 id="modalTitle" style="flex:1">Sửa xe</h2><button class="x" onclick="closeModal()">×</button></div>
+    <div class="grid2">
+      <div class="field"><label>ID</label><input id="f_id" type="number" /></div>
+      <div class="field"><label>Khu vực</label><select id="f_region"><option>Nội địa</option><option>Nước ngoài</option></select></div>
+    </div>
+    <div class="field"><label>Tên xe</label><input id="f_name" /></div>
+    <div class="grid2">
+      <div class="field"><label>Hãng</label><input id="f_brand" /></div>
+      <div class="field"><label>Giá</label><input id="f_price" placeholder="$120,000" /></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Động cơ</label><input id="f_engine" /></div>
+      <div class="field"><label>Công suất</label><input id="f_power" placeholder="320 HP" /></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>0-100 km/h</label><input id="f_accel" placeholder="4.6s" /></div>
+      <div class="field"><label>Dẫn động</label><input id="f_drive" placeholder="RWD/AWD/FWD" /></div>
+    </div>
+    <div class="field"><label>Ảnh (tên drawable)</label><input id="f_image" placeholder="car_9" /></div>
+    <div class="field"><label>Mô tả</label><textarea id="f_desc" rows="3"></textarea></div>
+    <div class="colors">
+      <h3>Màu sắc <button class="btn btn-ghost btn-sm" onclick="addColorRow()">＋ Thêm màu</button></h3>
+      <div id="colorRows"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Hủy</button>
+      <button class="btn btn-red" onclick="saveCar()">Lưu</button>
+    </div>
+  </div>
+</div>
+
+<!-- Order detail modal -->
+<div class="overlay" id="ovOrder">
+  <div class="modal">
+    <div style="display:flex;align-items:center"><h2 id="odTitle" style="flex:1">Đơn hàng</h2><button class="x" onclick="document.getElementById('ovOrder').classList.remove('open')">×</button></div>
+    <div id="odBody"></div>
+  </div>
+</div>
+
+<!-- Car detail modal -->
+<div class="overlay" id="ovCar">
+  <div class="modal">
+    <div style="display:flex;align-items:center"><h2 id="cdTitle" style="flex:1">Chi tiết xe</h2><button class="x" onclick="document.getElementById('ovCar').classList.remove('open')">×</button></div>
+    <div id="cdBody"></div>
+  </div>
+</div>
+
+<script>
+const IMG_BASE = "../app/src/main/res/drawable/";
+let API = '';
+let online = false;
+let cars = ([
+  {
+    "id": 1,
+    "name": "Nissan Skyline GT-R R34",
+    "brand": "Nissan",
+    "price": "$150,000",
+    "engine": "RB26DETT I6 Twin-Turbo",
+    "power": "327 HP",
+    "acceleration": "4.9s",
+    "drivetrain": "AWD",
+    "description": "Nissan Skyline GT-R R34 – biểu tượng JDM với động cơ RB26DETT I6 Twin-Turbo (327 HP), tăng tốc 0-100 km/h trong 4.9s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_1"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_10"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_19"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 2,
+    "name": "Nissan Skyline GT-R R32",
+    "brand": "Nissan",
+    "price": "$90,000",
+    "engine": "RB26DETT I6 Twin-Turbo",
+    "power": "276 HP",
+    "acceleration": "5.6s",
+    "drivetrain": "AWD",
+    "description": "Nissan Skyline GT-R R32 – biểu tượng JDM với động cơ RB26DETT I6 Twin-Turbo (276 HP), tăng tốc 0-100 km/h trong 5.6s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_2"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_11"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_20"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 3,
+    "name": "Nissan Skyline GT-R R33",
+    "brand": "Nissan",
+    "price": "$80,000",
+    "engine": "RB26DETT I6 Twin-Turbo",
+    "power": "276 HP",
+    "acceleration": "5.4s",
+    "drivetrain": "AWD",
+    "description": "Nissan Skyline GT-R R33 – biểu tượng JDM với động cơ RB26DETT I6 Twin-Turbo (276 HP), tăng tốc 0-100 km/h trong 5.4s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_3"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_12"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_21"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 4,
+    "name": "Nissan Silvia S15",
+    "brand": "Nissan",
+    "price": "$40,000",
+    "engine": "SR20DET I4 Turbo",
+    "power": "250 HP",
+    "acceleration": "5.5s",
+    "drivetrain": "RWD",
+    "description": "Nissan Silvia S15 – biểu tượng JDM với động cơ SR20DET I4 Turbo (250 HP), tăng tốc 0-100 km/h trong 5.5s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_4"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_13"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_22"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 5,
+    "name": "Nissan Silvia S13",
+    "brand": "Nissan",
+    "price": "$25,000",
+    "engine": "CA18DET I4 Turbo",
+    "power": "169 HP",
+    "acceleration": "7.4s",
+    "drivetrain": "RWD",
+    "description": "Nissan Silvia S13 – biểu tượng JDM với động cơ CA18DET I4 Turbo (169 HP), tăng tốc 0-100 km/h trong 7.4s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_5"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_14"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_23"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 6,
+    "name": "Nissan 350Z",
+    "brand": "Nissan",
+    "price": "$30,000",
+    "engine": "VQ35DE V6",
+    "power": "287 HP",
+    "acceleration": "5.8s",
+    "drivetrain": "RWD",
+    "description": "Nissan 350Z – biểu tượng JDM với động cơ VQ35DE V6 (287 HP), tăng tốc 0-100 km/h trong 5.8s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_6"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_15"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_24"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 7,
+    "name": "Nissan 370Z",
+    "brand": "Nissan",
+    "price": "$38,000",
+    "engine": "VQ37VHR V6",
+    "power": "332 HP",
+    "acceleration": "5.1s",
+    "drivetrain": "RWD",
+    "description": "Nissan 370Z – biểu tượng JDM với động cơ VQ37VHR V6 (332 HP), tăng tốc 0-100 km/h trong 5.1s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_7"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_16"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_25"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 8,
+    "name": "Nissan GT-R R35",
+    "brand": "Nissan",
+    "price": "$115,000",
+    "engine": "VR38DETT V6 Twin-Turbo",
+    "power": "565 HP",
+    "acceleration": "2.9s",
+    "drivetrain": "AWD",
+    "description": "Nissan GT-R R35 – biểu tượng JDM với động cơ VR38DETT V6 Twin-Turbo (565 HP), tăng tốc 0-100 km/h trong 2.9s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_8"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_17"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_26"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 9,
+    "name": "Toyota Supra MK4",
+    "brand": "Toyota",
+    "price": "$120,000",
+    "engine": "2JZ-GTE I6 Twin-Turbo",
+    "power": "320 HP",
+    "acceleration": "4.6s",
+    "drivetrain": "RWD",
+    "description": "Toyota Supra MK4 – biểu tượng JDM với động cơ 2JZ-GTE I6 Twin-Turbo (320 HP), tăng tốc 0-100 km/h trong 4.6s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_9"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_18"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_27"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 10,
+    "name": "Toyota AE86 Trueno",
+    "brand": "Toyota",
+    "price": "$35,000",
+    "engine": "4A-GE I4",
+    "power": "128 HP",
+    "acceleration": "8.3s",
+    "drivetrain": "RWD",
+    "description": "Toyota AE86 Trueno – biểu tượng JDM với động cơ 4A-GE I4 (128 HP), tăng tốc 0-100 km/h trong 8.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_10"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_19"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_28"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 11,
+    "name": "Toyota Supra MK5 A90",
+    "brand": "Toyota",
+    "price": "$60,000",
+    "engine": "B58 I6 Turbo",
+    "power": "382 HP",
+    "acceleration": "3.9s",
+    "drivetrain": "RWD",
+    "description": "Toyota Supra MK5 A90 – biểu tượng JDM với động cơ B58 I6 Turbo (382 HP), tăng tốc 0-100 km/h trong 3.9s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_11"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_20"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_29"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 12,
+    "name": "Toyota Chaser JZX100",
+    "brand": "Toyota",
+    "price": "$28,000",
+    "engine": "1JZ-GTE I6 Turbo",
+    "power": "276 HP",
+    "acceleration": "6.1s",
+    "drivetrain": "RWD",
+    "description": "Toyota Chaser JZX100 – biểu tượng JDM với động cơ 1JZ-GTE I6 Turbo (276 HP), tăng tốc 0-100 km/h trong 6.1s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_12"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_21"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_30"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 13,
+    "name": "Toyota Celica GT-Four",
+    "brand": "Toyota",
+    "price": "$32,000",
+    "engine": "3S-GTE I4 Turbo",
+    "power": "252 HP",
+    "acceleration": "5.9s",
+    "drivetrain": "AWD",
+    "description": "Toyota Celica GT-Four – biểu tượng JDM với động cơ 3S-GTE I4 Turbo (252 HP), tăng tốc 0-100 km/h trong 5.9s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_13"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_22"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_31"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 14,
+    "name": "Toyota MR2 SW20",
+    "brand": "Toyota",
+    "price": "$26,000",
+    "engine": "3S-GTE I4 Turbo",
+    "power": "245 HP",
+    "acceleration": "6.0s",
+    "drivetrain": "RWD",
+    "description": "Toyota MR2 SW20 – biểu tượng JDM với động cơ 3S-GTE I4 Turbo (245 HP), tăng tốc 0-100 km/h trong 6.0s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_14"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_23"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_32"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 15,
+    "name": "Toyota Soarer",
+    "brand": "Toyota",
+    "price": "$22,000",
+    "engine": "1JZ-GTE I6 Turbo",
+    "power": "276 HP",
+    "acceleration": "6.3s",
+    "drivetrain": "RWD",
+    "description": "Toyota Soarer – biểu tượng JDM với động cơ 1JZ-GTE I6 Turbo (276 HP), tăng tốc 0-100 km/h trong 6.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_15"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_24"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_33"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 16,
+    "name": "Toyota GR Yaris",
+    "brand": "Toyota",
+    "price": "$40,000",
+    "engine": "G16E-GTS I3 Turbo",
+    "power": "268 HP",
+    "acceleration": "5.2s",
+    "drivetrain": "AWD",
+    "description": "Toyota GR Yaris – biểu tượng JDM với động cơ G16E-GTS I3 Turbo (268 HP), tăng tốc 0-100 km/h trong 5.2s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_16"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_25"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_34"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 17,
+    "name": "Mazda RX-7 FD3S",
+    "brand": "Mazda",
+    "price": "$85,000",
+    "engine": "13B-REW Rotary",
+    "power": "276 HP",
+    "acceleration": "5.3s",
+    "drivetrain": "RWD",
+    "description": "Mazda RX-7 FD3S – biểu tượng JDM với động cơ 13B-REW Rotary (276 HP), tăng tốc 0-100 km/h trong 5.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_17"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_26"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_35"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 18,
+    "name": "Mazda RX-7 FC",
+    "brand": "Mazda",
+    "price": "$35,000",
+    "engine": "13B Turbo Rotary",
+    "power": "200 HP",
+    "acceleration": "6.3s",
+    "drivetrain": "RWD",
+    "description": "Mazda RX-7 FC – biểu tượng JDM với động cơ 13B Turbo Rotary (200 HP), tăng tốc 0-100 km/h trong 6.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_18"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_27"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_36"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 19,
+    "name": "Mazda RX-8",
+    "brand": "Mazda",
+    "price": "$18,000",
+    "engine": "13B-MSP Renesis",
+    "power": "232 HP",
+    "acceleration": "6.4s",
+    "drivetrain": "RWD",
+    "description": "Mazda RX-8 – biểu tượng JDM với động cơ 13B-MSP Renesis (232 HP), tăng tốc 0-100 km/h trong 6.4s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_19"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_28"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_37"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 20,
+    "name": "Mazda MX-5 Miata NA",
+    "brand": "Mazda",
+    "price": "$15,000",
+    "engine": "B6-ZE I4",
+    "power": "116 HP",
+    "acceleration": "8.6s",
+    "drivetrain": "RWD",
+    "description": "Mazda MX-5 Miata NA – biểu tượng JDM với động cơ B6-ZE I4 (116 HP), tăng tốc 0-100 km/h trong 8.6s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_20"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_29"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_38"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 21,
+    "name": "Mazda MX-5 ND",
+    "brand": "Mazda",
+    "price": "$30,000",
+    "engine": "Skyactiv-G I4",
+    "power": "181 HP",
+    "acceleration": "6.5s",
+    "drivetrain": "RWD",
+    "description": "Mazda MX-5 ND – biểu tượng JDM với động cơ Skyactiv-G I4 (181 HP), tăng tốc 0-100 km/h trong 6.5s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_21"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_30"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_39"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 22,
+    "name": "Mazdaspeed3",
+    "brand": "Mazda",
+    "price": "$20,000",
+    "engine": "MZR I4 Turbo",
+    "power": "263 HP",
+    "acceleration": "5.4s",
+    "drivetrain": "FWD",
+    "description": "Mazdaspeed3 – biểu tượng JDM với động cơ MZR I4 Turbo (263 HP), tăng tốc 0-100 km/h trong 5.4s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_22"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_31"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_40"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 23,
+    "name": "Mazda Cosmo",
+    "brand": "Mazda",
+    "price": "$45,000",
+    "engine": "20B-REW 3-Rotor",
+    "power": "300 HP",
+    "acceleration": "5.8s",
+    "drivetrain": "RWD",
+    "description": "Mazda Cosmo – biểu tượng JDM với động cơ 20B-REW 3-Rotor (300 HP), tăng tốc 0-100 km/h trong 5.8s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_23"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_32"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_41"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 24,
+    "name": "Mazda RX-3 Savanna",
+    "brand": "Mazda",
+    "price": "$40,000",
+    "engine": "12A Rotary",
+    "power": "120 HP",
+    "acceleration": "8.0s",
+    "drivetrain": "RWD",
+    "description": "Mazda RX-3 Savanna – biểu tượng JDM với động cơ 12A Rotary (120 HP), tăng tốc 0-100 km/h trong 8.0s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_24"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_33"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_42"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 25,
+    "name": "Honda NSX (NA1)",
+    "brand": "Honda",
+    "price": "$110,000",
+    "engine": "C30A V6 VTEC",
+    "power": "270 HP",
+    "acceleration": "5.7s",
+    "drivetrain": "RWD",
+    "description": "Honda NSX (NA1) – biểu tượng JDM với động cơ C30A V6 VTEC (270 HP), tăng tốc 0-100 km/h trong 5.7s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_25"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_34"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_43"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 26,
+    "name": "Honda Civic Type R EK9",
+    "brand": "Honda",
+    "price": "$40,000",
+    "engine": "B16B I4 VTEC",
+    "power": "182 HP",
+    "acceleration": "6.7s",
+    "drivetrain": "FWD",
+    "description": "Honda Civic Type R EK9 – biểu tượng JDM với động cơ B16B I4 VTEC (182 HP), tăng tốc 0-100 km/h trong 6.7s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_26"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_35"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_44"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 27,
+    "name": "Honda Integra Type R DC2",
+    "brand": "Honda",
+    "price": "$45,000",
+    "engine": "B18C I4 VTEC",
+    "power": "197 HP",
+    "acceleration": "6.2s",
+    "drivetrain": "FWD",
+    "description": "Honda Integra Type R DC2 – biểu tượng JDM với động cơ B18C I4 VTEC (197 HP), tăng tốc 0-100 km/h trong 6.2s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_27"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_36"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_45"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 28,
+    "name": "Honda S2000 AP1",
+    "brand": "Honda",
+    "price": "$50,000",
+    "engine": "F20C I4 VTEC",
+    "power": "240 HP",
+    "acceleration": "5.8s",
+    "drivetrain": "RWD",
+    "description": "Honda S2000 AP1 – biểu tượng JDM với động cơ F20C I4 VTEC (240 HP), tăng tốc 0-100 km/h trong 5.8s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_28"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_37"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_46"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 29,
+    "name": "Honda Civic Type R FD2",
+    "brand": "Honda",
+    "price": "$35,000",
+    "engine": "K20A I4 VTEC",
+    "power": "222 HP",
+    "acceleration": "6.0s",
+    "drivetrain": "FWD",
+    "description": "Honda Civic Type R FD2 – biểu tượng JDM với động cơ K20A I4 VTEC (222 HP), tăng tốc 0-100 km/h trong 6.0s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_29"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_38"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_47"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 30,
+    "name": "Honda Prelude SiR",
+    "brand": "Honda",
+    "price": "$18,000",
+    "engine": "H22A I4 VTEC",
+    "power": "197 HP",
+    "acceleration": "6.8s",
+    "drivetrain": "FWD",
+    "description": "Honda Prelude SiR – biểu tượng JDM với động cơ H22A I4 VTEC (197 HP), tăng tốc 0-100 km/h trong 6.8s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_30"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_39"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_48"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 31,
+    "name": "Honda NSX (NA2)",
+    "brand": "Honda",
+    "price": "$130,000",
+    "engine": "C32B V6 VTEC",
+    "power": "290 HP",
+    "acceleration": "5.5s",
+    "drivetrain": "RWD",
+    "description": "Honda NSX (NA2) – biểu tượng JDM với động cơ C32B V6 VTEC (290 HP), tăng tốc 0-100 km/h trong 5.5s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_31"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_40"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_1"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 32,
+    "name": "Honda CR-X SiR",
+    "brand": "Honda",
+    "price": "$16,000",
+    "engine": "B16A I4 VTEC",
+    "power": "158 HP",
+    "acceleration": "7.5s",
+    "drivetrain": "FWD",
+    "description": "Honda CR-X SiR – biểu tượng JDM với động cơ B16A I4 VTEC (158 HP), tăng tốc 0-100 km/h trong 7.5s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_32"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_41"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_2"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 33,
+    "name": "Mitsubishi Lancer Evo IX",
+    "brand": "Mitsubishi",
+    "price": "$55,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "286 HP",
+    "acceleration": "4.5s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Lancer Evo IX – biểu tượng JDM với động cơ 4G63T I4 Turbo (286 HP), tăng tốc 0-100 km/h trong 4.5s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_33"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_42"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_3"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 34,
+    "name": "Mitsubishi Lancer Evo VI TME",
+    "brand": "Mitsubishi",
+    "price": "$48,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "276 HP",
+    "acceleration": "4.8s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Lancer Evo VI TME – biểu tượng JDM với động cơ 4G63T I4 Turbo (276 HP), tăng tốc 0-100 km/h trong 4.8s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_34"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_43"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_4"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 35,
+    "name": "Mitsubishi Lancer Evo X",
+    "brand": "Mitsubishi",
+    "price": "$42,000",
+    "engine": "4B11T I4 Turbo",
+    "power": "291 HP",
+    "acceleration": "4.4s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Lancer Evo X – biểu tượng JDM với động cơ 4B11T I4 Turbo (291 HP), tăng tốc 0-100 km/h trong 4.4s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_35"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_44"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_5"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 36,
+    "name": "Mitsubishi 3000GT VR-4",
+    "brand": "Mitsubishi",
+    "price": "$30,000",
+    "engine": "6G72 V6 Twin-Turbo",
+    "power": "320 HP",
+    "acceleration": "5.4s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi 3000GT VR-4 – biểu tượng JDM với động cơ 6G72 V6 Twin-Turbo (320 HP), tăng tốc 0-100 km/h trong 5.4s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_36"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_45"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_6"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 37,
+    "name": "Mitsubishi Eclipse GSX",
+    "brand": "Mitsubishi",
+    "price": "$20,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "210 HP",
+    "acceleration": "6.2s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Eclipse GSX – biểu tượng JDM với động cơ 4G63T I4 Turbo (210 HP), tăng tốc 0-100 km/h trong 6.2s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_37"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_46"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_7"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 38,
+    "name": "Mitsubishi Galant VR-4",
+    "brand": "Mitsubishi",
+    "price": "$18,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "237 HP",
+    "acceleration": "6.0s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Galant VR-4 – biểu tượng JDM với động cơ 4G63T I4 Turbo (237 HP), tăng tốc 0-100 km/h trong 6.0s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_38"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_47"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_8"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 39,
+    "name": "Mitsubishi Lancer Evo VIII",
+    "brand": "Mitsubishi",
+    "price": "$38,000",
+    "engine": "4G63T I4 Turbo",
+    "power": "271 HP",
+    "acceleration": "4.9s",
+    "drivetrain": "AWD",
+    "description": "Mitsubishi Lancer Evo VIII – biểu tượng JDM với động cơ 4G63T I4 Turbo (271 HP), tăng tốc 0-100 km/h trong 4.9s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_39"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_48"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_9"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 40,
+    "name": "Mitsubishi FTO",
+    "brand": "Mitsubishi",
+    "price": "$14,000",
+    "engine": "6A12 V6 MIVEC",
+    "power": "197 HP",
+    "acceleration": "7.0s",
+    "drivetrain": "FWD",
+    "description": "Mitsubishi FTO – biểu tượng JDM với động cơ 6A12 V6 MIVEC (197 HP), tăng tốc 0-100 km/h trong 7.0s, hệ dẫn động FWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_40"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_1"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_10"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 41,
+    "name": "Subaru Impreza WRX STI",
+    "brand": "Subaru",
+    "price": "$45,000",
+    "engine": "EJ20 Boxer Turbo",
+    "power": "280 HP",
+    "acceleration": "4.7s",
+    "drivetrain": "AWD",
+    "description": "Subaru Impreza WRX STI – biểu tượng JDM với động cơ EJ20 Boxer Turbo (280 HP), tăng tốc 0-100 km/h trong 4.7s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_41"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_2"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_11"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 42,
+    "name": "Subaru Impreza 22B STI",
+    "brand": "Subaru",
+    "price": "$300,000",
+    "engine": "EJ22 Boxer Turbo",
+    "power": "280 HP",
+    "acceleration": "4.6s",
+    "drivetrain": "AWD",
+    "description": "Subaru Impreza 22B STI – biểu tượng JDM với động cơ EJ22 Boxer Turbo (280 HP), tăng tốc 0-100 km/h trong 4.6s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_42"
+      },
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_3"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_12"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 43,
+    "name": "Subaru WRX STI Hatch",
+    "brand": "Subaru",
+    "price": "$35,000",
+    "engine": "EJ25 Boxer Turbo",
+    "power": "305 HP",
+    "acceleration": "4.7s",
+    "drivetrain": "AWD",
+    "description": "Subaru WRX STI Hatch – biểu tượng JDM với động cơ EJ25 Boxer Turbo (305 HP), tăng tốc 0-100 km/h trong 4.7s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Championship White",
+        "hex": "#ECECEC",
+        "image": "car_43"
+      },
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_4"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_13"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 44,
+    "name": "Subaru Legacy GT",
+    "brand": "Subaru",
+    "price": "$16,000",
+    "engine": "EJ20 Boxer Turbo",
+    "power": "280 HP",
+    "acceleration": "5.5s",
+    "drivetrain": "AWD",
+    "description": "Subaru Legacy GT – biểu tượng JDM với động cơ EJ20 Boxer Turbo (280 HP), tăng tốc 0-100 km/h trong 5.5s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Active Red",
+        "hex": "#C8102E",
+        "image": "car_44"
+      },
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_5"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_14"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 45,
+    "name": "Subaru BRZ",
+    "brand": "Subaru",
+    "price": "$28,000",
+    "engine": "FA20 Boxer",
+    "power": "205 HP",
+    "acceleration": "6.3s",
+    "drivetrain": "RWD",
+    "description": "Subaru BRZ – biểu tượng JDM với động cơ FA20 Boxer (205 HP), tăng tốc 0-100 km/h trong 6.3s, hệ dẫn động RWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunlight Yellow",
+        "hex": "#F2C200",
+        "image": "car_45"
+      },
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_6"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_15"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 46,
+    "name": "Subaru Forester STI",
+    "brand": "Subaru",
+    "price": "$30,000",
+    "engine": "EJ25 Boxer Turbo",
+    "power": "316 HP",
+    "acceleration": "5.0s",
+    "drivetrain": "AWD",
+    "description": "Subaru Forester STI – biểu tượng JDM với động cơ EJ25 Boxer Turbo (316 HP), tăng tốc 0-100 km/h trong 5.0s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Gunmetal",
+        "hex": "#33363B",
+        "image": "car_46"
+      },
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_7"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_16"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 47,
+    "name": "Subaru Impreza GC8",
+    "brand": "Subaru",
+    "price": "$25,000",
+    "engine": "EJ20 Boxer Turbo",
+    "power": "276 HP",
+    "acceleration": "5.0s",
+    "drivetrain": "AWD",
+    "description": "Subaru Impreza GC8 – biểu tượng JDM với động cơ EJ20 Boxer Turbo (276 HP), tăng tốc 0-100 km/h trong 5.0s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Aqua Blue",
+        "hex": "#00A6C0",
+        "image": "car_47"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_8"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_17"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 48,
+    "name": "Subaru WRX S4",
+    "brand": "Subaru",
+    "price": "$34,000",
+    "engine": "FA24 Boxer Turbo",
+    "power": "271 HP",
+    "acceleration": "5.6s",
+    "drivetrain": "AWD",
+    "description": "Subaru WRX S4 – biểu tượng JDM với động cơ FA24 Boxer Turbo (271 HP), tăng tốc 0-100 km/h trong 5.6s, hệ dẫn động AWD. Một huyền thoại đáng sưu tầm trong garage của bạn.",
+    "imageUrl": "",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_48"
+      },
+      {
+        "name": "Bayside Blue",
+        "hex": "#1B3A8B",
+        "image": "car_9"
+      },
+      {
+        "name": "Midnight Purple",
+        "hex": "#3B2A5A",
+        "image": "car_18"
+      }
+    ],
+    "region": "Nội địa"
+  },
+  {
+    "id": 49,
+    "name": "BMW M3 E46",
+    "brand": "BMW",
+    "price": "$55,000",
+    "engine": "3.2L I6",
+    "power": "343 HP",
+    "acceleration": "5.1s",
+    "drivetrain": "RWD",
+    "description": "BMW M3 E46 – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.2L I6 (343 HP), tăng tốc 0-100 km/h trong 5.1s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_49"
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_58"
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_67"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "BMW M4 Competition",
+    "brand": "BMW",
+    "price": "$80,000",
+    "engine": "3.0L I6 Twin-Turbo",
+    "power": "503 HP",
+    "acceleration": "3.8s",
+    "drivetrain": "RWD",
+    "description": "BMW M4 Competition – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.0L I6 Twin-Turbo (503 HP), tăng tốc 0-100 km/h trong 3.8s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_50"
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_59"
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_68"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "BMW M5 E60",
+    "brand": "BMW",
+    "price": "$45,000",
+    "engine": "5.0L V10",
+    "power": "500 HP",
+    "acceleration": "4.5s",
+    "drivetrain": "RWD",
+    "description": "BMW M5 E60 – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.0L V10 (500 HP), tăng tốc 0-100 km/h trong 4.5s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_51"
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_60"
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_69"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "BMW M2",
+    "brand": "BMW",
+    "price": "$62,000",
+    "engine": "3.0L I6 Turbo",
+    "power": "405 HP",
+    "acceleration": "4.0s",
+    "drivetrain": "RWD",
+    "description": "BMW M2 – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.0L I6 Turbo (405 HP), tăng tốc 0-100 km/h trong 4.0s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_52"
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_61"
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_70"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Mercedes-AMG C63",
+    "brand": "Mercedes-AMG",
+    "price": "$75,000",
+    "engine": "4.0L V8 Biturbo",
+    "power": "503 HP",
+    "acceleration": "3.9s",
+    "drivetrain": "RWD",
+    "description": "Mercedes-AMG C63 – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Biturbo (503 HP), tăng tốc 0-100 km/h trong 3.9s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_53"
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_62"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_71"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Mercedes-AMG GT",
+    "brand": "Mercedes-AMG",
+    "price": "$120,000",
+    "engine": "4.0L V8 Biturbo",
+    "power": "523 HP",
+    "acceleration": "3.7s",
+    "drivetrain": "RWD",
+    "description": "Mercedes-AMG GT – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Biturbo (523 HP), tăng tốc 0-100 km/h trong 3.7s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_54"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_63"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_72"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Mercedes-AMG A45 S",
+    "brand": "Mercedes-AMG",
+    "price": "$60,000",
+    "engine": "2.0L I4 Turbo",
+    "power": "416 HP",
+    "acceleration": "3.9s",
+    "drivetrain": "AWD",
+    "description": "Mercedes-AMG A45 S – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.0L I4 Turbo (416 HP), tăng tốc 0-100 km/h trong 3.9s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_55"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_64"
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_1"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Mercedes-AMG E63 S",
+    "brand": "Mercedes-AMG",
+    "price": "$110,000",
+    "engine": "4.0L V8 Biturbo",
+    "power": "603 HP",
+    "acceleration": "3.4s",
+    "drivetrain": "AWD",
+    "description": "Mercedes-AMG E63 S – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Biturbo (603 HP), tăng tốc 0-100 km/h trong 3.4s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_56"
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_65"
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_2"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Audi RS6 Avant",
+    "brand": "Audi",
+    "price": "$120,000",
+    "engine": "4.0L V8 Twin-Turbo",
+    "power": "591 HP",
+    "acceleration": "3.6s",
+    "drivetrain": "AWD",
+    "description": "Audi RS6 Avant – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Twin-Turbo (591 HP), tăng tốc 0-100 km/h trong 3.6s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_57"
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_66"
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_3"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Audi R8 V10",
+    "brand": "Audi",
+    "price": "$160,000",
+    "engine": "5.2L V10",
+    "power": "562 HP",
+    "acceleration": "3.5s",
+    "drivetrain": "AWD",
+    "description": "Audi R8 V10 – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.2L V10 (562 HP), tăng tốc 0-100 km/h trong 3.5s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_58"
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_67"
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_4"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Audi RS3",
+    "brand": "Audi",
+    "price": "$60,000",
+    "engine": "2.5L I5 Turbo",
+    "power": "401 HP",
+    "acceleration": "3.8s",
+    "drivetrain": "AWD",
+    "description": "Audi RS3 – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.5L I5 Turbo (401 HP), tăng tốc 0-100 km/h trong 3.8s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_59"
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_68"
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_5"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Audi TT RS",
+    "brand": "Audi",
+    "price": "$70,000",
+    "engine": "2.5L I5 Turbo",
+    "power": "394 HP",
+    "acceleration": "3.6s",
+    "drivetrain": "AWD",
+    "description": "Audi TT RS – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.5L I5 Turbo (394 HP), tăng tốc 0-100 km/h trong 3.6s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_60"
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_69"
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_6"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Porsche 911 GT3",
+    "brand": "Porsche",
+    "price": "$170,000",
+    "engine": "4.0L Flat-6",
+    "power": "502 HP",
+    "acceleration": "3.2s",
+    "drivetrain": "RWD",
+    "description": "Porsche 911 GT3 – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L Flat-6 (502 HP), tăng tốc 0-100 km/h trong 3.2s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_61"
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_70"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_7"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Porsche 718 Cayman",
+    "brand": "Porsche",
+    "price": "$65,000",
+    "engine": "2.0L Flat-4 Turbo",
+    "power": "300 HP",
+    "acceleration": "4.9s",
+    "drivetrain": "RWD",
+    "description": "Porsche 718 Cayman – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.0L Flat-4 Turbo (300 HP), tăng tốc 0-100 km/h trong 4.9s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_62"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_71"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_8"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Porsche 911 Turbo S",
+    "brand": "Porsche",
+    "price": "$230,000",
+    "engine": "3.8L Flat-6 Twin-Turbo",
+    "power": "640 HP",
+    "acceleration": "2.6s",
+    "drivetrain": "AWD",
+    "description": "Porsche 911 Turbo S – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.8L Flat-6 Twin-Turbo (640 HP), tăng tốc 0-100 km/h trong 2.6s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_63"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_72"
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_9"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Porsche Panamera",
+    "brand": "Porsche",
+    "price": "$190,000",
+    "engine": "4.0L V8 Twin-Turbo",
+    "power": "620 HP",
+    "acceleration": "3.0s",
+    "drivetrain": "AWD",
+    "description": "Porsche Panamera – mẫu xe hiệu năng cao nhập khẩu với động cơ 4.0L V8 Twin-Turbo (620 HP), tăng tốc 0-100 km/h trong 3.0s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_64"
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_1"
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_10"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Ford Mustang GT",
+    "brand": "Ford",
+    "price": "$40,000",
+    "engine": "5.0L V8",
+    "power": "450 HP",
+    "acceleration": "4.3s",
+    "drivetrain": "RWD",
+    "description": "Ford Mustang GT – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.0L V8 (450 HP), tăng tốc 0-100 km/h trong 4.3s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_65"
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_2"
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_11"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Ford Mustang Shelby GT500",
+    "brand": "Ford",
+    "price": "$80,000",
+    "engine": "5.2L V8 Supercharged",
+    "power": "760 HP",
+    "acceleration": "3.5s",
+    "drivetrain": "RWD",
+    "description": "Ford Mustang Shelby GT500 – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.2L V8 Supercharged (760 HP), tăng tốc 0-100 km/h trong 3.5s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_66"
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_3"
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_12"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Ford Focus RS",
+    "brand": "Ford",
+    "price": "$40,000",
+    "engine": "2.3L I4 Turbo",
+    "power": "350 HP",
+    "acceleration": "4.6s",
+    "drivetrain": "AWD",
+    "description": "Ford Focus RS – mẫu xe hiệu năng cao nhập khẩu với động cơ 2.3L I4 Turbo (350 HP), tăng tốc 0-100 km/h trong 4.6s, hệ dẫn động AWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Racing Red",
+        "hex": "#C8102E",
+        "image": "car_67"
+      },
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_4"
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_13"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Ford GT",
+    "brand": "Ford",
+    "price": "$500,000",
+    "engine": "3.5L V6 Twin-Turbo",
+    "power": "647 HP",
+    "acceleration": "3.0s",
+    "drivetrain": "RWD",
+    "description": "Ford GT – mẫu xe hiệu năng cao nhập khẩu với động cơ 3.5L V6 Twin-Turbo (647 HP), tăng tốc 0-100 km/h trong 3.0s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Nardo Grey",
+        "hex": "#7C7F84",
+        "image": "car_68"
+      },
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_5"
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_14"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Chevrolet Corvette C8",
+    "brand": "Chevrolet",
+    "price": "$65,000",
+    "engine": "6.2L V8",
+    "power": "495 HP",
+    "acceleration": "2.9s",
+    "drivetrain": "RWD",
+    "description": "Chevrolet Corvette C8 – mẫu xe hiệu năng cao nhập khẩu với động cơ 6.2L V8 (495 HP), tăng tốc 0-100 km/h trong 2.9s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "British Racing Green",
+        "hex": "#13402B",
+        "image": "car_69"
+      },
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_6"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_15"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Chevrolet Camaro SS",
+    "brand": "Chevrolet",
+    "price": "$43,000",
+    "engine": "6.2L V8",
+    "power": "455 HP",
+    "acceleration": "4.0s",
+    "drivetrain": "RWD",
+    "description": "Chevrolet Camaro SS – mẫu xe hiệu năng cao nhập khẩu với động cơ 6.2L V8 (455 HP), tăng tốc 0-100 km/h trong 4.0s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Frozen Blue",
+        "hex": "#2A6FA8",
+        "image": "car_70"
+      },
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_7"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_16"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Chevrolet Corvette Z06",
+    "brand": "Chevrolet",
+    "price": "$110,000",
+    "engine": "5.5L V8",
+    "power": "670 HP",
+    "acceleration": "2.6s",
+    "drivetrain": "RWD",
+    "description": "Chevrolet Corvette Z06 – mẫu xe hiệu năng cao nhập khẩu với động cơ 5.5L V8 (670 HP), tăng tốc 0-100 km/h trong 2.6s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Sunset Orange",
+        "hex": "#E8531A",
+        "image": "car_71"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_8"
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_17"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Chevrolet Camaro ZL1",
+    "brand": "Chevrolet",
+    "price": "$70,000",
+    "engine": "6.2L V8 Supercharged",
+    "power": "650 HP",
+    "acceleration": "3.5s",
+    "drivetrain": "RWD",
+    "description": "Chevrolet Camaro ZL1 – mẫu xe hiệu năng cao nhập khẩu với động cơ 6.2L V8 Supercharged (650 HP), tăng tốc 0-100 km/h trong 3.5s, hệ dẫn động RWD. Đẳng cấp xe thể thao quốc tế.",
+    "imageUrl": "",
+    "region": "Nước ngoài",
+    "colors": [
+      {
+        "name": "Silver",
+        "hex": "#C9CCD1",
+        "image": "car_72"
+      },
+      {
+        "name": "Alpine White",
+        "hex": "#ECECEC",
+        "image": "car_9"
+      },
+      {
+        "name": "Jet Black",
+        "hex": "#1A1A1A",
+        "image": "car_18"
+      }
+    ]
+  }
+]);
+let orders = [];
+let editingId = null;
+let users = [];
+let editingUserId = null;
+let chartGroup = 'day';
+let chartMetric = 'rev';
+const STATUSES = ['Đang xử lý','Đang giao','Đã tới','Hoàn thành'];
+function statusClass(s){ return s==='Đang xử lý'?'st-sold':s==='Đang giao'?'st-paper':s==='Đã tới'?'st-deliver':s==='Hoàn thành'?'st-done':'st-other'; }
+function statusColor(s){ return s==='Đang xử lý'?'#F2C200':s==='Đang giao'?'#7AB8F0':s==='Đã tới'?'#7EE0A6':s==='Hoàn thành'?'#5BD6B0':'#F0A6C0'; }
+function orderDateISO(o){
+  if(o.createdAt){ const d=new Date(o.createdAt); if(!isNaN(d)) return d.toISOString().slice(0,10); }
+  const m=String(o.date||'').match(/(\d{2})\/(\d{2})\/(\d{4})/); // dd/MM/yyyy
+  return m ? `${m[3]}-${m[2]}-${m[1]}` : '';
+}
+
+const $ = id => document.getElementById(id);
+function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function money(s){ const n = parseInt(String(s||'').replace(/[^0-9]/g,''))||0; return n; }
+function fmt(n){ return '$' + n.toLocaleString('en-US'); }
+function imgFor(c){ const name=(c.colors&&c.colors[0]&&c.colors[0].image)||c.image||("car_"+c.id); return IMG_BASE+name+".jpg"; }
+function brands(){ return [...new Set(cars.map(c=>c.brand))].sort(); }
+
+function showTab(t){
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===t));
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+  $('view-'+t).classList.add('active');
+}
+
+function renderAll(){ renderDashboard(); renderChart(); renderCars(); renderOrders(); renderUsers(); }
+
+// ---------- DASHBOARD ----------
+function renderDashboard(){
+  const dom=cars.filter(c=>c.region==='Nội địa').length;
+  const forg=cars.filter(c=>c.region==='Nước ngoài').length;
+  const revenue=orders.reduce((s,o)=>s+money(o.totalAmount),0);
+  $('stats').innerHTML=`
+    <div class="stat"><div class="n">${cars.length}</div><div class="l">Tổng xe</div></div>
+    <div class="stat"><div class="n">${dom}</div><div class="l">Nội địa</div></div>
+    <div class="stat"><div class="n">${forg}</div><div class="l">Nước ngoài</div></div>
+    <div class="stat"><div class="n">${brands().length}</div><div class="l">Số hãng</div></div>
+    <div class="stat"><div class="n">${orders.length}</div><div class="l">Đơn hàng</div></div>
+    <div class="stat"><div class="n">${users.length}</div><div class="l">Người dùng</div></div>
+    <div class="stat"><div class="n red">${fmt(revenue)}</div><div class="l">Doanh thu</div></div>`;
+
+  const counts={}; cars.forEach(c=>counts[c.brand]=(counts[c.brand]||0)+1);
+  const max=Math.max(1,...Object.values(counts));
+  $('brandTable').innerHTML=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([b,n])=>`
+    <tr><td style="width:120px">${esc(b)}</td>
+    <td><div class="bar" style="width:${Math.round(n/max*100)}%"></div></td>
+    <td class="right" style="width:40px">${n}</td></tr>`).join('');
+
+  const recent=[...orders].slice(0,6);
+  $('recentOrders').innerHTML = recent.length ? recent.map(o=>`
+    <tr><td class="cell-name">#${esc(o.orderId)}</td>
+    <td class="cell-sub">${esc(o.userEmail||'')}</td>
+    <td>${fmt(money(o.totalAmount))}</td>
+    <td><span class="pill ${statusClass(o.status)}">${esc(o.status||'')}</span></td></tr>`).join('')
+    : `<tr><td class="muted">Chưa có đơn (kết nối API để xem).</td></tr>`;
+
+  renderStatusDonut();
+}
+
+// Donut "Đơn theo trạng thái"
+function renderStatusDonut(){
+  const sb=$('statusBreak');
+  if(!orders.length){ sb.innerHTML='<div class="muted">Chưa có đơn hàng.</div>'; return; }
+  const sc={}; orders.forEach(o=>sc[o.status]=(sc[o.status]||0)+1);
+  const keys=[...STATUSES, ...Object.keys(sc).filter(k=>!STATUSES.includes(k))].filter(k=>sc[k]);
+  const total=orders.length, r=58, C=2*Math.PI*r;
+  let off=0;
+  const segs=keys.map(k=>{
+    const frac=sc[k]/total, len=frac*C;
+    const seg=`<circle cx="80" cy="80" r="${r}" fill="none" stroke="${statusColor(k)}" stroke-width="24"
+      stroke-dasharray="${len.toFixed(2)} ${(C-len).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}"
+      transform="rotate(-90 80 80)"><title>${esc(k)}: ${sc[k]} (${Math.round(frac*100)}%)</title></circle>`;
+    off+=len; return seg;
+  }).join('');
+  const legend=keys.map(k=>`<div class="li"><span class="sw" style="background:${statusColor(k)}"></span>
+    <span style="flex:1">${esc(k)}</span><b>${sc[k]}</b>
+    <span class="muted">${Math.round(sc[k]/total*100)}%</span></div>`).join('');
+  sb.innerHTML=`<div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+    <svg width="160" height="160" viewBox="0 0 160 160">${segs}
+      <text x="80" y="74" text-anchor="middle" fill="#fff" font-size="26" font-weight="800">${total}</text>
+      <text x="80" y="96" text-anchor="middle" fill="#A0A4AD" font-size="12">đơn hàng</text></svg>
+    <div class="donut-legend" style="flex:1;min-width:160px">${legend}</div>
+  </div>`;
+}
+
+// ---------- CARS ----------
+function renderCars(){
+  const fb=$('fBrand'), cur=fb.value;
+  fb.innerHTML='<option value="">Tất cả hãng</option>'+brands().map(b=>`<option ${b===cur?'selected':''}>${b}</option>`).join('');
+  const q=$('q').value.toLowerCase().trim(), fr=$('fRegion').value, fbr=$('fBrand').value;
+  const list=cars.filter(c=>{
+    if(fr&&c.region!==fr)return false;
+    if(fbr&&c.brand!==fbr)return false;
+    if(q&&!((c.name||'').toLowerCase().includes(q)||(c.brand||'').toLowerCase().includes(q)))return false;
+    return true;
+  });
+  $('carRows').innerHTML=list.map(c=>`
+    <tr>
+      <td><img class="thumb" src="${imgFor(c)}" onerror="this.style.opacity=.2"></td>
+      <td><div class="cell-name">${esc(c.name)}</div><div class="cell-sub">#${c.id} · ${esc(c.engine||'')} · ${esc(c.power||'')}</div></td>
+      <td>${esc(c.brand)}</td>
+      <td><span class="pill ${c.region==='Nước ngoài'?'for':'dom'}">${esc(c.region||'—')}</span></td>
+      <td>${esc(c.price||'')}</td>
+      <td>${esc(c.power||'')}</td>
+      <td>${c.quantity!=null?`<b style="${(c.quantity||0)<=0?'color:#f0a6c0':''}">${c.quantity}</b>`:'—'}</td>
+      <td><div class="row-actions">
+        <button class="btn btn-ghost btn-sm" onclick="carDetail(${c.id})">Chi tiết</button>
+        <button class="btn btn-ghost btn-sm" onclick="editCar(${c.id})">Sửa</button>
+        <button class="btn btn-ghost btn-sm" onclick="delCar(${c.id})">Xóa</button>
+      </div></td>
+    </tr>`).join('') || `<tr><td colspan="8" class="empty">Không có xe</td></tr>`;
+}
+
+// ---------- ORDERS ----------
+function renderOrders(){
+  $('ordersHint').style.display = online ? 'none' : 'block';
+  const q=$('oq').value.toLowerCase().trim(), fs=$('fStatus').value;
+  const from=$('dFrom').value, to=$('dTo').value;
+  const list=orders.filter(o=>{
+    if(fs&&o.status!==fs)return false;
+    if(q&&!((o.orderId||'').toLowerCase().includes(q)||(o.userEmail||'').toLowerCase().includes(q)))return false;
+    if(from||to){ const d=orderDateISO(o); if(!d)return false; if(from&&d<from)return false; if(to&&d>to)return false; }
+    return true;
+  });
+  const opts=s=>STATUSES.map(x=>`<option ${x===s?'selected':''}>${x}</option>`).join('');
+  $('orderRows').innerHTML=list.map(o=>`
+    <tr>
+      <td class="cell-name">#${esc(o.orderId)}</td>
+      <td>${esc(o.userEmail||'')}</td>
+      <td class="cell-sub">${esc(o.date||'')}</td>
+      <td>${fmt(money(o.totalAmount))}</td>
+      <td class="cell-sub">${esc(o.paymentMethod||'')}</td>
+      <td>${(o.items||[]).length}</td>
+      <td><select onchange="changeStatus('${esc(o.orderId)}',this.value)" ${online?'':'disabled'}>${opts(o.status)}</select></td>
+      <td class="row-actions"><button class="btn btn-ghost btn-sm" onclick="orderDetail('${esc(o.orderId)}')">Chi tiết</button></td>
+    </tr>`).join('') || `<tr><td colspan="8" class="empty">${online?'Chưa có đơn hàng':'Kết nối API để xem đơn'}</td></tr>`;
+}
+async function changeStatus(orderId,status){
+  if(!online) return;
+  try{
+    const r=await fetch(API+'/api/orders/'+orderId,{method:'PUT',headers:authHeaders({'Content-Type':'application/json'}),body:JSON.stringify({status})});
+    if(!r.ok) throw 0;
+    const o=orders.find(x=>x.orderId===orderId); if(o)o.status=status;
+    renderDashboard();
+  }catch(e){ alert('Lỗi đổi trạng thái'); }
+}
+function orderDetail(orderId){
+  const o=orders.find(x=>x.orderId===orderId); if(!o) return;
+  $('odTitle').textContent='Đơn hàng #'+o.orderId;
+  const items=(o.items||[]).map(it=>`
+    <tr><td><img class="thumb" src="${IMG_BASE+((it.colors&&it.colors[0]&&it.colors[0].image)||('car_'+it.id))}.jpg" onerror="this.style.opacity=.2"></td>
+    <td class="cell-name">${esc(it.name)}</td><td>${esc(it.price||'')}</td></tr>`).join('') || '<tr><td class="muted">Không có sản phẩm</td></tr>';
+  $('odBody').innerHTML=`
+    <p><span class="muted">Khách:</span> ${esc(o.userEmail||'—')}<br>
+    <span class="muted">Ngày:</span> ${esc(o.date||'')}<br>
+    <span class="muted">Thanh toán:</span> ${esc(o.paymentMethod||'—')}<br>
+    <span class="muted">Trạng thái:</span> <span class="pill ${statusClass(o.status)}">${esc(o.status)}</span><br>
+    <span class="muted">Tổng:</span> <b>${fmt(money(o.totalAmount))}</b></p>
+    <table><thead><tr><th>Ảnh</th><th>Xe</th><th>Giá</th></tr></thead><tbody>${items}</tbody></table>`;
+  $('ovOrder').classList.add('open');
+}
+
+function carDetail(id){
+  const c=cars.find(x=>x.id===id); if(!c) return;
+  $('cdTitle').textContent=c.name;
+  const swatches=(c.colors||[]).map(col=>`
+    <div style="text-align:center;width:84px">
+      <img src="${IMG_BASE+(col.image||'')}.jpg" onerror="this.style.opacity=.2" style="width:84px;height:56px;object-fit:cover;border-radius:8px;background:var(--surface2)">
+      <div style="display:flex;align-items:center;gap:5px;justify-content:center;margin-top:5px">
+        <span style="width:12px;height:12px;border-radius:50%;background:${esc(col.hex||'#888')};border:1px solid #fff3"></span>
+        <span class="cell-sub" style="font-size:11px">${esc(col.name||'')}</span>
+      </div>
+      <div style="font-size:11px;margin-top:3px">Kho: <b style="${(col.quantity||0)<=0?'color:#f0a6c0':'color:#7ee0a6'}">${col.quantity||0}</b></div>
+    </div>`).join('') || '<span class="muted">Chưa có màu</span>';
+  const spec=(label,val)=>`<div style="background:var(--surface2);border-radius:10px;padding:10px 12px">
+      <div class="cell-sub">${label}</div><div style="font-weight:700">${esc(val||'—')}</div></div>`;
+  $('cdBody').innerHTML=`
+    <img src="${imgFor(c)}" onerror="this.style.opacity=.2" style="width:100%;height:200px;object-fit:cover;border-radius:14px;background:var(--surface2)">
+    <div style="margin-top:12px;display:flex;align-items:center;gap:8px">
+      <span class="pill ${c.region==='Nước ngoài'?'for':'dom'}">${esc(c.region||'—')}</span>
+      <span class="muted">#${c.id} · ${esc(c.brand)}</span>
+      <span class="pill ${(c.quantity||0)<=0?'st-other':'st-deliver'}">Kho: ${c.quantity||0}</span>
+      <span style="flex:1"></span>
+      <b style="color:var(--red);font-size:18px">${esc(c.price||'')}</b>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px">
+      ${spec('Động cơ',c.engine)}${spec('Công suất',c.power)}
+      ${spec('0-100 km/h',c.acceleration)}${spec('Dẫn động',c.drivetrain)}
+    </div>
+    <p style="margin-top:14px;line-height:1.5">${esc(c.description||'')}</p>
+    <h3 style="font-size:13px;color:var(--muted);text-transform:uppercase;margin:8px 0">Màu sắc (${(c.colors||[]).length})</h3>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">${swatches}</div>`;
+  $('ovCar').classList.add('open');
+}
+
+// ---------- CAR CRUD ----------
+function nextId(){ return cars.reduce((m,c)=>Math.max(m,c.id||0),0)+1; }
+function addCar(){ editingId=null; $('modalTitle').textContent='Thêm xe mới'; setForm({id:nextId(),region:'Nội địa',colors:[]}); openModal(); }
+function editCar(id){ editingId=id; const c=cars.find(x=>x.id===id); if(!c)return; $('modalTitle').textContent='Sửa xe'; setForm(c); openModal(); }
+async function delCar(id){
+  const c=cars.find(x=>x.id===id); if(!confirm('Xóa "'+(c?c.name:'')+'" ?'))return;
+  if(online){ try{const r=await fetch(API+'/api/cars/'+id,{method:'DELETE',headers:authHeaders()});if(!r.ok)throw 0;}catch(e){alert('Lỗi xoá trên server');return;} }
+  cars=cars.filter(x=>x.id!==id); renderCars(); renderDashboard();
+}
+function setForm(c){
+  f_id.value=c.id||''; f_region.value=c.region||'Nội địa'; f_name.value=c.name||'';
+  f_brand.value=c.brand||''; f_price.value=c.price||''; f_engine.value=c.engine||'';
+  f_power.value=c.power||''; f_accel.value=c.acceleration||''; f_drive.value=c.drivetrain||'';
+  f_image.value=(c.colors&&c.colors[0]&&c.colors[0].image)||c.image||('car_'+(c.id||''));
+  f_desc.value=c.description||'';
+  colorRows.innerHTML='';
+  (c.colors&&c.colors.length?c.colors:[{name:'',hex:'#F5333F',image:'car_'+(c.id||'')}]).forEach(addColorRow);
+}
+function addColorRow(col){
+  col=col&&col.name!==undefined?col:{name:'',hex:'#F5333F',image:''};
+  const div=document.createElement('div'); div.className='color-row';
+  div.innerHTML=`<input placeholder="Tên màu" value="${esc(col.name)}" class="c-name">
+    <input type="color" value="${col.hex||'#F5333F'}" class="c-hex">
+    <input placeholder="ảnh (car_5)" value="${esc(col.image)}" class="c-img">
+    <input type="number" min="0" placeholder="SL" value="${col.quantity!=null?col.quantity:''}" class="c-qty" title="Số lượng màu này">
+    <button class="x" onclick="this.parentNode.remove()">×</button>`;
+  colorRows.appendChild(div);
+}
+async function saveCar(){
+  const colors=[...colorRows.querySelectorAll('.color-row')].map(r=>({name:r.querySelector('.c-name').value.trim(),hex:r.querySelector('.c-hex').value,image:r.querySelector('.c-img').value.trim(),quantity:parseInt(r.querySelector('.c-qty').value)||0})).filter(c=>c.name||c.image);
+  const totalQty=colors.reduce((s,c)=>s+(c.quantity||0),0);
+  const obj={id:parseInt(f_id.value)||nextId(),name:f_name.value.trim(),brand:f_brand.value.trim(),price:f_price.value.trim(),engine:f_engine.value.trim(),power:f_power.value.trim(),acceleration:f_accel.value.trim(),drivetrain:f_drive.value.trim(),description:f_desc.value.trim(),imageUrl:"",region:f_region.value,quantity:totalQty,colors:colors};
+  if(!obj.name||!obj.brand){alert('Cần nhập Tên xe và Hãng');return;}
+  const isNew=editingId===null;
+  if(online){
+    try{
+      const url=isNew?API+'/api/cars':API+'/api/cars/'+obj.id;
+      const r=await fetch(url,{method:isNew?'POST':'PUT',headers:authHeaders({'Content-Type':'application/json'}),body:JSON.stringify(obj)});
+      if(!r.ok)throw 0; const saved=await r.json();
+      const i=cars.findIndex(c=>c.id===saved.id); if(i>=0)cars[i]=saved; else cars.push(saved);
+      closeModal(); renderCars(); renderDashboard(); return;
+    }catch(e){alert('Lỗi lưu lên server');return;}
+  }
+  const i=cars.findIndex(c=>c.id===obj.id); if(i>=0)cars[i]=obj; else cars.push(obj);
+  closeModal(); renderCars(); renderDashboard();
+}
+function openModal(){ $('overlay').classList.add('open'); }
+function closeModal(){ $('overlay').classList.remove('open'); }
+
+// ---------- Import / Export / API ----------
+$('importFile').addEventListener('change',e=>{
+  const f=e.target.files[0]; if(!f)return; const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);if(Array.isArray(d)){cars=d;renderAll();alert('Đã nhập '+d.length+' xe');}else alert('File không hợp lệ');}catch(err){alert('Lỗi JSON: '+err.message);}};
+  r.readAsText(f);
+});
+function exportJson(){
+  const blob=new Blob([JSON.stringify(cars,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cars.json';a.click();URL.revokeObjectURL(a.href);
+}
+// ---------- AUTH (đăng nhập quản trị, gắn JWT vào mọi request) ----------
+let TOKEN = '';
+function authHeaders(extra){ const h = Object.assign({}, extra||{}); if(TOKEN) h['Authorization']='Bearer '+TOKEN; return h; }
+
+async function doLogin(){
+  const err=$('loginErr'); err.textContent='';
+  const api=$('loginApi').value.replace(/\/$/,'');
+  const email=$('loginEmail').value.trim();
+  const pass=$('loginPass').value;
+  if(!api||!email||!pass){ err.textContent='Nhập đủ API URL, email và mật khẩu.'; return; }
+  const btn=$('btnLogin'); btn.disabled=true; btn.textContent='Đang đăng nhập…';
+  try{
+    const r=await fetch(api+'/api/users/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password:pass})});
+    const data=await r.json().catch(()=>({}));
+    if(!r.ok){ err.textContent=data.message||'Email hoặc mật khẩu không đúng.'; return; }
+    const role=data.user&&data.user.role;
+    if(role!=='admin'){ err.textContent='Tài khoản này không có quyền quản trị (role ≠ admin).'; return; }
+    TOKEN=data.token||'';
+    const name=(data.user&&data.user.name)||email;
+    sessionStorage.setItem('jdm_admin_token',TOKEN);
+    sessionStorage.setItem('jdm_admin_api',api);
+    sessionStorage.setItem('jdm_admin_name',name);
+    enterAdmin(api,name);
+  }catch(e){
+    err.textContent='Không kết nối được máy chủ. Kiểm tra API URL / mạng.';
+  }finally{ btn.disabled=false; btn.textContent='Đăng nhập'; }
+}
+
+function enterAdmin(api,name){
+  $('apiUrl').value=api;
+  $('adminWho').textContent='👤 '+name;
+  $('btnLogout').style.display='';
+  $('loginGate').style.display='none';
+  connectApi();
+}
+
+function logout(){
+  TOKEN='';
+  sessionStorage.removeItem('jdm_admin_token');
+  sessionStorage.removeItem('jdm_admin_api');
+  sessionStorage.removeItem('jdm_admin_name');
+  location.reload();
+}
+
+async function connectApi(){
+  API=$('apiUrl').value.replace(/\/$/,''); const btn=$('btnApi');
+  btn.textContent='… đang kết nối';
+  try{
+    const [rc,ro,ru]=await Promise.all([fetch(API+'/api/cars',{headers:authHeaders()}),fetch(API+'/api/orders',{headers:authHeaders()}),fetch(API+'/api/users',{headers:authHeaders()})]);
+    if(ro.status===401||ru.status===401){ alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.'); logout(); return; }
+    if(!rc.ok)throw 0;
+    cars=await rc.json();
+    orders=ro.ok? await ro.json():[];
+    users=ru.ok? await ru.json():[];
+    online=true; btn.textContent='🟢 Đã kết nối'; btn.style.background='#13402b';
+    $('dot').classList.add('on'); $('connTxt').textContent=API;
+    renderAll();
+    alert('Đã kết nối — '+cars.length+' xe, '+orders.length+' đơn, '+users.length+' người dùng.');
+  }catch(e){
+    online=false; btn.textContent='🔌 Kết nối';
+    alert('Không kết nối được '+API+'.\nKiểm tra server (cd jdm-shop && npm start).');
+  }
+}
+
+// ---------- CHART (Ngày/Tuần/Tháng) ----------
+function setChart(g){ chartGroup=g; document.querySelectorAll('.chip[data-g]').forEach(c=>c.classList.toggle('active',c.dataset.g===g)); renderChart(); }
+function setMetric(m){ chartMetric=m; document.querySelectorAll('.chip[data-m]').forEach(c=>c.classList.toggle('active',c.dataset.m===m)); renderChart(); }
+function periodKey(d,g){
+  const dt=new Date(d); if(isNaN(dt)) return null;
+  const y=dt.getFullYear(), m=('0'+(dt.getMonth()+1)).slice(-2), day=('0'+dt.getDate()).slice(-2);
+  if(g==='month') return {k:y+'-'+m, lab:m+'/'+y};
+  if(g==='week'){ const onejan=new Date(y,0,1); const wk=Math.ceil((((dt-onejan)/86400000)+onejan.getDay()+1)/7); return {k:y+'-W'+('0'+wk).slice(-2), lab:'T'+wk}; }
+  return {k:y+'-'+m+'-'+day, lab:day+'/'+m};
+}
+function renderChart(){
+  const map=new Map();
+  orders.forEach(o=>{ const pk=periodKey(o.createdAt||o.date,chartGroup); if(!pk)return; const cur=map.get(pk.k)||{lab:pk.lab,rev:0,cnt:0}; cur.rev+=money(o.totalAmount); cur.cnt++; map.set(pk.k,cur); });
+  let arr=[...map.entries()].sort((a,b)=>a[0]<b[0]?-1:1).map(e=>e[1]).slice(-12);
+  const el=$('chart');
+  if(!arr.length){ el.innerHTML='<div class="empty" style="margin:auto">Chưa có dữ liệu đơn hàng</div>'; return; }
+  const val=a=> chartMetric==='cnt' ? a.cnt : a.rev;
+  const max=Math.max(...arr.map(val),1);
+  const short=v=> chartMetric==='cnt' ? v : (v>=1000?(Math.round(v/100)/10)+'k':v);
+  const W=640,H=210,pl=46,pr=14,pt=16,pb=30, pw=W-pl-pr, ph=H-pt-pb, n=arr.length;
+  const X=i=> n<=1 ? pl+pw/2 : pl+i*pw/(n-1);
+  const Y=v=> pt+ph*(1-v/max);
+  const pts=arr.map((a,i)=>[X(i),Y(val(a))]);
+  // lưới ngang + nhãn trục Y (4 mức)
+  let grid='', g=4;
+  for(let i=0;i<=g;i++){ const yy=pt+ph*i/g; const lvl=max*(1-i/g);
+    grid+=`<line class="gline" x1="${pl}" y1="${yy.toFixed(1)}" x2="${W-pr}" y2="${yy.toFixed(1)}"/>`;
+    grid+=`<text class="axis" x="${pl-8}" y="${(yy+4).toFixed(1)}" text-anchor="end">${short(Math.round(lvl))}</text>`; }
+  const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  const area=`M${pts[0][0].toFixed(1)} ${(pt+ph)} `+pts.map(p=>'L'+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ')+` L${pts[n-1][0].toFixed(1)} ${(pt+ph)} Z`;
+  const dots=pts.map((p,i)=>`<circle class="dot" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="4"><title>${esc(arr[i].lab)} · ${arr[i].cnt} đơn · ${fmt(arr[i].rev)}</title></circle>`).join('');
+  const xlabs=arr.map((a,i)=>`<text class="axis" x="${X(i).toFixed(1)}" y="${H-8}" text-anchor="middle">${esc(a.lab)}</text>`).join('');
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img">
+    <defs><linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5333F" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#F5333F" stop-opacity="0"/></linearGradient></defs>
+    ${grid}
+    <path d="${area}" fill="url(#gfill)"/>
+    <path d="${line}" fill="none" stroke="#F5333F" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    ${dots}${xlabs}</svg>`;
+}
+
+// ---------- USERS ----------
+function renderUsers(){
+  $('usersHint').style.display=online?'none':'block';
+  const q=$('uq').value.toLowerCase().trim(), fr=$('fRole').value;
+  const list=users.filter(u=>{
+    if(fr&&u.role!==fr)return false;
+    if(q&&!((u.name||'').toLowerCase().includes(q)||(u.email||'').toLowerCase().includes(q)))return false;
+    return true;
+  });
+  $('userRows').innerHTML=list.map(u=>`
+    <tr>
+      <td class="cell-name">${esc(u.name)}</td>
+      <td>${esc(u.email)}</td>
+      <td class="cell-sub">${esc(u.phone||'—')}</td>
+      <td><span class="pill role-${u.role==='admin'?'admin':'customer'}">${u.role==='admin'?'Admin':'Khách hàng'}</span></td>
+      <td class="row-actions">
+        <button class="btn btn-ghost btn-sm" onclick="editUser('${u._id}')">Sửa</button>
+        <button class="btn btn-ghost btn-sm" onclick="delUser('${u._id}')">Xóa</button>
+      </td>
+    </tr>`).join('') || `<tr><td colspan="5" class="empty">${online?'Chưa có người dùng':'Kết nối API để xem'}</td></tr>`;
+}
+function addUser(){ if(!online){alert('Cần Kết nối API trước');return;} editingUserId=null; $('uTitle').textContent='Thêm người dùng'; u_name.value='';u_email.value='';u_phone.value='';u_role.value='customer'; $('ovUser').classList.add('open'); }
+function editUser(id){ const u=users.find(x=>x._id===id); if(!u)return; editingUserId=id; $('uTitle').textContent='Sửa người dùng'; u_name.value=u.name||'';u_email.value=u.email||'';u_phone.value=u.phone||'';u_role.value=u.role||'customer'; $('ovUser').classList.add('open'); }
+async function saveUser(){
+  const body={name:u_name.value.trim(),email:u_email.value.trim(),phone:u_phone.value.trim(),role:u_role.value};
+  if(!body.name||!body.email){alert('Cần Tên và Email');return;}
+  try{
+    const url=editingUserId?API+'/api/users/'+editingUserId:API+'/api/users';
+    const r=await fetch(url,{method:editingUserId?'PUT':'POST',headers:authHeaders({'Content-Type':'application/json'}),body:JSON.stringify(body)});
+    const data=await r.json();
+    if(!r.ok){alert(data.error||'Lỗi lưu');return;}
+    if(editingUserId){ const i=users.findIndex(x=>x._id===editingUserId); if(i>=0)users[i]=data; }
+    else users.unshift(data);
+    $('ovUser').classList.remove('open'); renderUsers(); renderDashboard();
+  }catch(e){alert('Lỗi kết nối server');}
+}
+async function delUser(id){
+  const u=users.find(x=>x._id===id); if(!confirm('Xóa "'+(u?u.name:'')+'" ?'))return;
+  try{ const r=await fetch(API+'/api/users/'+id,{method:'DELETE',headers:authHeaders()}); if(!r.ok)throw 0; users=users.filter(x=>x._id!==id); renderUsers(); renderDashboard(); }
+  catch(e){alert('Lỗi xoá');}
+}
+
+renderAll();
+// Khởi tạo cổng đăng nhập: còn phiên (sessionStorage) thì vào thẳng, không thì hiện form đăng nhập
+(function initAuth(){
+  const t=sessionStorage.getItem('jdm_admin_token');
+  if(t){ TOKEN=t; enterAdmin(sessionStorage.getItem('jdm_admin_api')||$('loginApi').value, sessionStorage.getItem('jdm_admin_name')||'Admin'); }
+})();
+</script>
+</body>
+</html>
