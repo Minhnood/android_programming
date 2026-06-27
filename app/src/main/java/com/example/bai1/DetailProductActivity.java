@@ -136,13 +136,13 @@ public class DetailProductActivity extends BaseActivity {
 
         if (btnBuy != null) {
             btnBuy.setOnClickListener(v -> {
+                UiUtils.playDing(this);    // 🔔 âm "ting" xác nhận khi bấm Mua ngay
                 UiUtils.playCarAcross(v); // 🏎️ xe chạy ngang trong nút cho vui
-                if (dataManager.isInCart(currentCar.getId())) {
-                    Toast.makeText(this, "Xe đã có trong giỏ hàng.", Toast.LENGTH_SHORT).show();
-                } else {
-                    dataManager.addToCart(currentCar);
-                    Toast.makeText(this, "Đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
-                }
+                boolean had = dataManager.isInCart(currentCar.getId());
+                dataManager.addToCart(currentCar); // tự cộng dồn số lượng nếu đã có
+                Toast.makeText(this,
+                        had ? "Đã tăng số lượng trong giỏ!" : "Đã thêm vào giỏ hàng!",
+                        Toast.LENGTH_SHORT).show();
             });
         }
 

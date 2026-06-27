@@ -100,32 +100,51 @@ public class AccountManager {
     }
 
     public String getPhone() {
+        // Ưu tiên dữ liệu theo từng tài khoản; fallback key cũ để tương thích
+        String email = getUserEmail();
+        if (email != null && !email.isEmpty() && prefs.contains(email + "_phone")) {
+            return prefs.getString(email + "_phone", "");
+        }
         return prefs.getString(KEY_PHONE, "");
     }
 
     public String getBio() {
+        String email = getUserEmail();
+        if (email != null && !email.isEmpty() && prefs.contains(email + "_bio")) {
+            return prefs.getString(email + "_bio", "");
+        }
         return prefs.getString(KEY_BIO, "");
     }
 
-    /** Đường dẫn ảnh đại diện đã lưu trong bộ nhớ trong (null nếu chưa có). */
+    /** Đường dẫn ảnh đại diện của tài khoản hiện tại (null nếu chưa có). */
     public String getAvatarPath() {
-        return prefs.getString(KEY_AVATAR, null);
+        String email = getUserEmail();
+        if (email != null && !email.isEmpty()) {
+            // Chỉ trả ảnh nếu tài khoản này đã từng lưu ảnh riêng
+            return prefs.getString(email + "_avatar", null);
+        }
+        return null;
     }
 
     public void setAvatarPath(String path) {
-        prefs.edit().putString(KEY_AVATAR, path).apply();
+        String email = getUserEmail();
+        SharedPreferences.Editor e = prefs.edit();
+        if (email != null && !email.isEmpty()) {
+            e.putString(email + "_avatar", path);
+        }
+        e.apply();
     }
 
-    /** Cập nhật hồ sơ: tên, số điện thoại, giới thiệu. */
+    /** Cập nhật hồ sơ: tên, số điện thoại, giới thiệu (lưu theo từng tài khoản). */
     public void updateProfile(String name, String phone, String bio) {
         SharedPreferences.Editor e = prefs.edit();
         e.putString(KEY_NAME, name);
-        e.putString(KEY_PHONE, phone);
-        e.putString(KEY_BIO, bio);
-        // Đồng bộ tên theo email để lần đăng nhập sau vẫn đúng
+        // Lưu theo email để mỗi tài khoản giữ dữ liệu riêng
         String email = getUserEmail();
         if (email != null && !email.isEmpty()) {
             e.putString(email + "_name", name);
+            e.putString(email + "_phone", phone);
+            e.putString(email + "_bio", bio);
         }
         e.apply();
     }

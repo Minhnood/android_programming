@@ -119,6 +119,16 @@
     <string name="payment_method">PAYMENT METHOD</string>
     <string name="pay_cod">Cash on Delivery</string>
     <string name="pay_card">Credit Card / Banking</string>
+    <string name="card_info">CARD DETAILS</string>
+    <string name="card_secured">🔒 Secured</string>
+    <string name="card_number">Card number</string>
+    <string name="card_holder">Cardholder name</string>
+    <string name="card_expiry">MM/YY</string>
+    <string name="card_cvv">CVV</string>
+    <string name="err_card_number">Invalid card number</string>
+    <string name="err_card_holder">Please enter cardholder name</string>
+    <string name="err_card_expiry">Invalid expiry date (MM/YY)</string>
+    <string name="err_card_cvv">Invalid CVV</string>
     <string name="order_summary">ORDER SUMMARY</string>
 
     <!-- Detail extra -->

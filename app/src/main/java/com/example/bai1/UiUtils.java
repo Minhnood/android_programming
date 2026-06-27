@@ -1,6 +1,8 @@
 package com.example.bai1;
 
 import android.app.Activity;
+import android.content.Context;
+import android.media.MediaPlayer;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,5 +85,21 @@ public class UiUtils {
                     .withEndAction(() -> root.removeView(car))
                     .start();
         });
+    }
+
+    /**
+     * Phát âm "ting" ngắn để xác nhận (vd khi bấm "Mua ngay"). Tự giải phóng
+     * MediaPlayer sau khi phát xong; mọi lỗi (không loa/codec) được bỏ qua để
+     * không làm gián đoạn luồng mua hàng.
+     */
+    public static void playDing(Context context) {
+        if (context == null) return;
+        try {
+            MediaPlayer mp = MediaPlayer.create(context, R.raw.ting);
+            if (mp == null) return;
+            mp.setOnCompletionListener(MediaPlayer::release);
+            mp.start();
+        } catch (Exception ignored) {
+        }
     }
 }

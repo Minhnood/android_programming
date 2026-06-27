@@ -40,8 +40,12 @@ public class HomeActivity extends BaseActivity {
                         header.getPaddingRight(), header.getPaddingBottom());
             }
             if (bottomNav != null) {
-                bottomNav.setPadding(bottomNav.getPaddingLeft(), bottomNav.getPaddingTop(),
-                        bottomNav.getPaddingRight(), bars.bottom + bottomNav.getPaddingTop());
+                // Nav nổi dạng pill: chừa khoảng đáy bằng LỀ (margin) thay vì padding
+                android.view.ViewGroup.MarginLayoutParams lp =
+                        (android.view.ViewGroup.MarginLayoutParams) bottomNav.getLayoutParams();
+                int base = Math.round(16 * getResources().getDisplayMetrics().density);
+                lp.bottomMargin = base + bars.bottom;
+                bottomNav.setLayoutParams(lp);
             }
             return insets;
         });

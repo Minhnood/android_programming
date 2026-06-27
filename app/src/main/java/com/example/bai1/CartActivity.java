@@ -65,10 +65,23 @@ public class CartActivity extends BaseActivity {
         rvCart.setVisibility(empty ? View.GONE : View.VISIBLE);
         cvCheckout.setVisibility(empty ? View.GONE : View.VISIBLE);
 
-        adapter = new CartAdapter(this, cartItems, position -> {
-            dataManager.removeFromCart(position);
-            loadCart();
-        });
+        adapter = new CartAdapter(this, cartItems,
+                position -> {                       // xoá 1 dòng
+                    dataManager.removeFromCart(position);
+                    loadCart();
+                },
+                (position, newQty) -> {             // đổi số lượng
+                    int saved = dataManager.setCartQuantity(position, newQty);
+                    if (newQty > saved) {           // chạm trần tồn kho
+                        Toast.makeText(this, "Chỉ còn " + saved + " xe trong kho",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                    // Cập nhật danh sách tại chỗ (giữ nguyên tham chiếu adapter đang giữ)
+                    cartItems.clear();
+                    cartItems.addAll(dataManager.getCart());
+                    adapter.notifyItemChanged(position);
+                    updateTotal();
+                });
         rvCart.setLayoutManager(new LinearLayoutManager(this));
         rvCart.setAdapter(adapter);
 
@@ -76,14 +89,9 @@ public class CartActivity extends BaseActivity {
     }
 
     private void updateTotal() {
-        int total = 0;
+        long total = 0;
         for (CarModel car : cartItems) {
-            try {
-                String priceStr = car.getPrice().replace("$", "").replace(",", "");
-                total += Integer.parseInt(priceStr);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            total += DataManager.parsePrice(car.getPrice()) * car.getCartQty();
         }
         tvTotalPrice.setText(String.format(Locale.US, "$%,d", total));
     }

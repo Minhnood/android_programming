@@ -6,6 +6,19 @@
 
 ---
 
+## 👤 Tài khoản demo
+
+Đăng nhập sẵn để chấm/thử nhanh (mật khẩu trên server được **băm bcrypt**, đây là các tài khoản mẫu đặt mật khẩu sẵn):
+
+| Vai trò | Email | Mật khẩu |
+|--------|-------|----------|
+| **Admin** (xem trang quản trị) | `admin@jdm.com` | `Admin@123` |
+| **Khách hàng** | `khach@jdm.com` | `Khach@123` |
+
+> 🔒 *Vì mật khẩu được mã hoá bcrypt (một chiều) ở server, không thể xem lại mật khẩu của tài khoản người dùng đã đăng ký — đây là các tài khoản demo được tạo riêng để minh hoạ. Bạn có thể tự đăng ký tài khoản mới ngay trong app.*
+
+---
+
 ## ✨ Tính năng
 
 | Nhóm | Chức năng |

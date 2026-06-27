@@ -15,6 +15,7 @@ public class CarModel {
     private String imageUrl; // URL hoặc tên resource
     private String region;   // "Nội địa" hoặc "Nước ngoài"
     private int quantity;    // tổng tồn kho
+    private int cartQty;     // số lượng đang chọn trong giỏ (KHÁC với tồn kho)
     private List<ColorVariant> colors; // các biến thể màu (nhiều ảnh)
 
     public CarModel() {
@@ -47,4 +48,8 @@ public class CarModel {
     public String getRegion() { return region; }
     public int getQuantity() { return quantity; }
     public List<ColorVariant> getColors() { return colors; }
+
+    /** Số lượng trong giỏ; coi 0 (chưa set) là 1. */
+    public int getCartQty() { return cartQty < 1 ? 1 : cartQty; }
+    public void setCartQty(int q) { this.cartQty = Math.max(1, q); }
 }

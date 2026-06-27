@@ -46,6 +46,11 @@ public class CheckoutActivity extends BaseActivity {
 
     private AutoCompleteTextView edtAddress;
     private com.google.android.material.textfield.TextInputEditText edtPhone;
+    private View llCardForm;
+    private com.google.android.material.textfield.TextInputEditText edtCardNumber;
+    private com.google.android.material.textfield.TextInputEditText edtCardHolder;
+    private com.google.android.material.textfield.TextInputEditText edtCardExpiry;
+    private com.google.android.material.textfield.TextInputEditText edtCardCvv;
     private android.webkit.WebView mapView;
     private ArrayAdapter<String> suggestAdapter;
     private final List<String> suggestNames = new ArrayList<>();
@@ -78,6 +83,11 @@ public class CheckoutActivity extends BaseActivity {
         mapView.getSettings().setDomStorageEnabled(true);
         MaterialButton btnFinalize = findViewById(R.id.btnFinalize);
         RadioGroup rgPayment = findViewById(R.id.rgPayment);
+        llCardForm = findViewById(R.id.llCardForm);
+        edtCardNumber = findViewById(R.id.edtCardNumber);
+        edtCardHolder = findViewById(R.id.edtCardHolder);
+        edtCardExpiry = findViewById(R.id.edtCardExpiry);
+        edtCardCvv = findViewById(R.id.edtCardCvv);
 
         btnBack.setOnClickListener(v -> finish());
 
@@ -86,6 +96,28 @@ public class CheckoutActivity extends BaseActivity {
         rvSummary.setAdapter(adapter);
 
         setupAddressAutocomplete();
+
+        // Hiện form nhập thẻ khi chọn "Thẻ / Chuyển khoản"
+        rgPayment.setOnCheckedChangeListener((group, checkedId) ->
+                llCardForm.setVisibility(checkedId == R.id.rbCard ? View.VISIBLE : View.GONE));
+
+        // Tự chèn dấu "/" cho ô hạn thẻ (MM/YY)
+        edtCardExpiry.addTextChangedListener(new TextWatcher() {
+            private boolean editing = false;
+            @Override public void beforeTextChanged(CharSequence s, int a, int b, int c) {}
+            @Override public void onTextChanged(CharSequence s, int a, int b, int c) {}
+            @Override public void afterTextChanged(Editable s) {
+                if (editing) return;
+                editing = true;
+                String digits = s.toString().replaceAll("[^0-9]", "");
+                if (digits.length() > 4) digits = digits.substring(0, 4);
+                String formatted = digits.length() > 2
+                        ? digits.substring(0, 2) + "/" + digits.substring(2)
+                        : digits;
+                s.replace(0, s.length(), formatted);
+                editing = false;
+            }
+        });
 
         btnFinalize.setOnClickListener(v -> {
             String address = edtAddress.getText().toString().trim();
@@ -110,13 +142,86 @@ public class CheckoutActivity extends BaseActivity {
                 edtPhone.requestFocus();
                 return;
             }
+            boolean isCard = rgPayment != null && rgPayment.getCheckedRadioButtonId() == R.id.rbCard;
+            if (isCard && !validateCard()) {
+                return;
+            }
             // Lưu số điện thoại vào hồ sơ để lần sau gợi ý sẵn
             AccountManager am = new AccountManager(this);
             am.updateProfile(am.getUserName(), phone, am.getBio());
-            String payment = rgPayment != null && rgPayment.getCheckedRadioButtonId() == R.id.rbCard
-                    ? "Thẻ / Chuyển khoản" : "Thanh toán khi nhận hàng (COD)";
+            String payment;
+            if (isCard) {
+                String last4 = onlyDigits(text(edtCardNumber));
+                last4 = last4.substring(last4.length() - 4);
+                payment = "Thẻ Visa **** " + last4;
+            } else {
+                payment = "Thanh toán khi nhận hàng (COD)";
+            }
             processOrder(address, payment, phone);
         });
+    }
+
+    // ---- Kiểm tra thông tin thẻ Visa ----
+    private boolean validateCard() {
+        String number = onlyDigits(text(edtCardNumber));
+        if (number.length() < 13 || number.length() > 19 || !luhnValid(number)) {
+            edtCardNumber.setError(getString(R.string.err_card_number));
+            edtCardNumber.requestFocus();
+            return false;
+        }
+        if (text(edtCardHolder).trim().length() < 3) {
+            edtCardHolder.setError(getString(R.string.err_card_holder));
+            edtCardHolder.requestFocus();
+            return false;
+        }
+        if (!validExpiry(text(edtCardExpiry).trim())) {
+            edtCardExpiry.setError(getString(R.string.err_card_expiry));
+            edtCardExpiry.requestFocus();
+            return false;
+        }
+        String cvv = onlyDigits(text(edtCardCvv));
+        if (cvv.length() < 3 || cvv.length() > 4) {
+            edtCardCvv.setError(getString(R.string.err_card_cvv));
+            edtCardCvv.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    private String text(com.google.android.material.textfield.TextInputEditText e) {
+        return e.getText() == null ? "" : e.getText().toString();
+    }
+
+    private String onlyDigits(String s) {
+        return s.replaceAll("[^0-9]", "");
+    }
+
+    // Thuật toán Luhn xác thực số thẻ
+    private boolean luhnValid(String number) {
+        int sum = 0;
+        boolean alt = false;
+        for (int i = number.length() - 1; i >= 0; i--) {
+            int d = number.charAt(i) - '0';
+            if (alt) {
+                d *= 2;
+                if (d > 9) d -= 9;
+            }
+            sum += d;
+            alt = !alt;
+        }
+        return sum % 10 == 0;
+    }
+
+    // Kiểm tra hạn thẻ định dạng MM/YY và chưa hết hạn
+    private boolean validExpiry(String exp) {
+        if (!exp.matches("\\d{2}/\\d{2}")) return false;
+        int mm = Integer.parseInt(exp.substring(0, 2));
+        int yy = Integer.parseInt(exp.substring(3, 5));
+        if (mm < 1 || mm > 12) return false;
+        java.util.Calendar c = java.util.Calendar.getInstance();
+        int curYy = c.get(java.util.Calendar.YEAR) % 100;
+        int curMm = c.get(java.util.Calendar.MONTH) + 1;
+        return yy > curYy || (yy == curYy && mm >= curMm);
     }
 
     // ---- Gợi ý địa chỉ (OpenStreetMap Nominatim) + bản đồ ----

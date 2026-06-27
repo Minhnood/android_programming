@@ -66,10 +66,56 @@ public class DataManager {
     }
 
     // --- CART ---
+    /** Thêm vào giỏ; nếu xe đã có thì cộng dồn số lượng (không vượt tồn kho). */
     public void addToCart(CarModel car) {
         List<CarModel> list = getCart();
+        for (CarModel c : list) {
+            if (c.getId() == car.getId()) {
+                c.setCartQty(capToStock(c, c.getCartQty() + 1));
+                saveCart(list);
+                return;
+            }
+        }
+        car.setCartQty(1);
         list.add(car);
         saveCart(list);
+    }
+
+    /** Đặt số lượng cho 1 dòng trong giỏ (kẹp trong [1, tồn kho]). Trả về SL thực tế đã lưu. */
+    public int setCartQuantity(int position, int qty) {
+        List<CarModel> list = getCart();
+        if (position >= 0 && position < list.size()) {
+            CarModel c = list.get(position);
+            int clamped = capToStock(c, qty);
+            c.setCartQty(clamped);
+            saveCart(list);
+            return clamped;
+        }
+        return qty;
+    }
+
+    /** Kẹp số lượng trong khoảng [1, tồn kho]; nếu tồn kho <= 0 thì cho tối đa 99. */
+    private int capToStock(CarModel c, int qty) {
+        int max = c.getQuantity() > 0 ? c.getQuantity() : 99;
+        return Math.max(1, Math.min(max, qty));
+    }
+
+    /** Bóc số từ chuỗi giá "$150,000" -> 150000. Lỗi -> 0. */
+    public static long parsePrice(String price) {
+        if (price == null) return 0;
+        try {
+            String digits = price.replaceAll("[^0-9]", "");
+            return digits.isEmpty() ? 0 : Long.parseLong(digits);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    /** Tổng tiền giỏ = Σ (đơn giá × số lượng). */
+    public long getCartTotal() {
+        long total = 0;
+        for (CarModel c : getCart()) total += parsePrice(c.getPrice()) * c.getCartQty();
+        return total;
     }
 
     public boolean isInCart(int carId) {

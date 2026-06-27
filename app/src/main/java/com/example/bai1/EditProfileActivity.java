@@ -106,7 +106,11 @@ public class EditProfileActivity extends BaseActivity {
 
     /** Sao chép ảnh người dùng chọn vào bộ nhớ trong để giữ lại lâu dài. */
     private String copyImageToInternal(Uri uri) {
-        File out = new File(getFilesDir(), "avatar.jpg");
+        // Đặt tên file theo email để mỗi tài khoản có ảnh riêng, không ghi đè nhau
+        String email = accountManager.getUserEmail();
+        String safe = (email == null || email.isEmpty())
+                ? "guest" : email.replaceAll("[^a-zA-Z0-9]", "_");
+        File out = new File(getFilesDir(), "avatar_" + safe + ".jpg");
         try (InputStream in = getContentResolver().openInputStream(uri);
              OutputStream os = new FileOutputStream(out)) {
             if (in == null) return null;

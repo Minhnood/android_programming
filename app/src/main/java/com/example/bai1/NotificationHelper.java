@@ -22,7 +22,10 @@ public class NotificationHelper {
         List<NotificationModel> list = new ArrayList<>();
         for (OrderModel o : new DataManager(context).getOrders()) {
             String id = "order_" + o.getOrderId();
-            int count = o.getItems() != null ? o.getItems().size() : 0;
+            int count = 0;
+            if (o.getItems() != null) {
+                for (CarModel c : o.getItems()) count += c.getCartQty();
+            }
             list.add(new NotificationModel(
                     id,
                     "Đơn hàng #" + o.getOrderId() + " " + o.getStatus(),

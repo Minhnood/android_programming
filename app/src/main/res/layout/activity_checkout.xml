@@ -64,16 +64,21 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxStrokeWidth="0dp"
+                android:textColorHint="@color/text_hint"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/edtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="56dp"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
                     android:hint="@string/hint_address"
                     android:inputType="textPostalAddress"
                     android:completionThreshold="2"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/text_secondary" />
+                    android:textSize="16sp"
+                    android:textColorHint="@color/text_hint" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -112,16 +117,21 @@
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxStrokeWidth="0dp"
+                android:textColorHint="@color/text_hint"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="56dp"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
                     android:hint="@string/phone"
                     android:inputType="phone"
                     android:maxLength="10"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/text_secondary" />
+                    android:textSize="16sp"
+                    android:textColorHint="@color/text_hint" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -138,24 +148,194 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/bg_search_input"
-                android:padding="8dp">
+                android:background="@drawable/bg_card_form"
+                android:divider="@drawable/divider_thin"
+                android:showDividers="middle"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp">
                 <RadioButton
                     android:id="@+id/rbCod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="8dp"
                     android:text="@string/pay_cod"
                     android:textColor="@color/white"
+                    android:textSize="15sp"
                     android:buttonTint="@color/jdm_red"
                     android:checked="true" />
                 <RadioButton
                     android:id="@+id/rbCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="52dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="8dp"
                     android:text="@string/pay_card"
                     android:textColor="@color/white"
+                    android:textSize="15sp"
                     android:buttonTint="@color/jdm_red" />
             </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/llCardForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:background="@drawable/bg_card_form"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_card"
+                        app:tint="@color/jdm_red"
+                        android:contentDescription="@string/card_info" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/card_info"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/card_secured"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:boxBackgroundColor="@color/jdm_grey"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeWidth="0dp"
+                    app:startIconDrawable="@drawable/ic_card"
+                    app:startIconTint="@color/text_hint"
+                    android:textColorHint="@color/text_hint"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCardNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="56dp"
+                        android:gravity="center_vertical"
+                        android:hint="@string/card_number"
+                        android:inputType="number"
+                        android:maxLength="19"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textColorHint="@color/text_hint" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:boxBackgroundColor="@color/jdm_grey"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxStrokeWidth="0dp"
+                    android:textColorHint="@color/text_hint"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCardHolder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="56dp"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="16dp"
+                        android:hint="@string/card_holder"
+                        android:inputType="textCapCharacters"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textColorHint="@color/text_hint" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        app:boxBackgroundColor="@color/jdm_grey"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeWidth="0dp"
+                        android:textColorHint="@color/text_hint"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtCardExpiry"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="56dp"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="16dp"
+                            android:hint="@string/card_expiry"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textColorHint="@color/text_hint" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        app:boxBackgroundColor="@color/jdm_grey"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxStrokeWidth="0dp"
+                        android:textColorHint="@color/text_hint"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtCardCvv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="56dp"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="16dp"
+                            android:hint="@string/card_cvv"
+                            android:inputType="numberPassword"
+                            android:maxLength="4"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textColorHint="@color/text_hint" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
